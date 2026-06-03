@@ -5,73 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Area riservata · Live Impianti | RF Digital</title>
-  <meta name="description" content="Pannello di gestione contenuti — Live Impianti S.r.l. · RF Digital" />
+  <meta name="description" content="Pannello di gestione contenuti — Live Impianti S.r.l." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="custom.css?v=2" />
+  <link rel="stylesheet" href="custom.css?v=3" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body>
+<body class="rf-admin">
 
   <div id="rf-splash" aria-live="polite" aria-busy="true">
     <div class="rf-splash__card">
       <p class="rf-splash__studio">RF <span>DIGITAL</span></p>
-      <p class="rf-splash__tagline">Gestione contenuti web</p>
+      <p class="rf-splash__tagline">Pannello contenuti · Live Impianti</p>
       <div class="rf-splash__divider" aria-hidden="true"></div>
       <div class="rf-splash__client">
         <img src="../images/liveimpianti_logo.png" alt="Live Impianti" class="rf-client-logo" onerror="this.style.display='none'" />
         <p class="rf-splash__client-text">
           <strong>Live Impianti S.r.l.</strong>
-          Pannello amministrazione sito
+          Caricamento editor…
         </p>
       </div>
       <div class="rf-splash__loader" aria-hidden="true"></div>
-      <p class="rf-splash__hint">Caricamento in corso…</p>
     </div>
   </div>
 
-  <header id="rf-topbar" aria-hidden="true">
-    <div class="rf-topbar__left">
-      <a href="https://www.rfdigital.it" class="rf-topbar__brand" target="_blank" rel="noopener noreferrer" title="RF Digital">
-        <img src="rf-logo.svg" alt="RF Digital" class="rf-topbar__logo" />
-      </a>
-      <span class="rf-topbar__sep" aria-hidden="true"></span>
-      <img src="../images/liveimpianti_logo.png" alt="" class="rf-topbar__client-logo" onerror="this.style.display='none'" />
-      <span class="rf-topbar__title">CMS</span>
+  <!-- Dock in basso: NON copre i pulsanti Decap in alto -->
+  <nav id="rf-dock" class="rf-dock" aria-label="Collegamenti rapidi" hidden>
+    <a href="/" class="rf-dock__btn rf-dock__btn--primary" target="_blank" rel="noopener noreferrer">Vedi sito live</a>
+    <a href="/progetti.html" class="rf-dock__btn" target="_blank" rel="noopener noreferrer">Pagina progetti</a>
+    <button type="button" class="rf-dock__btn" id="rfHelpToggle" aria-expanded="false">Guida CMS</button>
+  </nav>
+
+  <aside id="rf-help" class="rf-help" hidden aria-labelledby="rf-help-title">
+    <header class="rf-help__head">
+      <h2 id="rf-help-title">Guida rapida</h2>
+      <button type="button" class="rf-help__close" id="rfHelpClose" aria-label="Chiudi">×</button>
+    </header>
+    <div class="rf-help__body">
+      <p><strong>Menu a sinistra</strong> — scegli la sezione da modificare:</p>
+      <ul>
+        <li><strong>01 · Home</strong> — titolo hero, testi, statistiche (1200+, 20+, 100%), CTA</li>
+        <li><strong>02 · Servizi</strong> — card servizi in homepage</li>
+        <li><strong>03 · Chi siamo</strong> — testi sezione Chi siamo</li>
+        <li><strong>04 · Catalogo progetti</strong> — categorie, foto, elenco progetti</li>
+        <li><strong>05 · Azienda e contatti</strong> — telefono, email, mappa, footer</li>
+        <li><strong>06 · Privacy e Cookie</strong> — testi legali</li>
+      </ul>
+      <p>In alto trovi <strong>Salva</strong> e <strong>Pubblica</strong>. Dopo il salvataggio il sito si aggiorna automaticamente (Netlify).</p>
+      <p class="rf-help__credit">Sviluppato da <a href="https://www.rfdigital.it" target="_blank" rel="noopener">RF Digital</a></p>
     </div>
-    <div class="rf-topbar__right">
-      <span class="rf-topbar__client-name">Live Impianti</span>
-      <a href="/" class="rf-topbar__btn" target="_blank" rel="noopener noreferrer">Vedi sito</a>
-      <a href="/" class="rf-topbar__btn rf-topbar__btn--ghost" target="_blank" rel="noopener noreferrer" title="Homepage">↗</a>
-    </div>
-  </header>
+  </aside>
 
   <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
   <script>
     (function () {
       const splash = document.getElementById('rf-splash');
-      const topbar = document.getElementById('rf-topbar');
+      const dock = document.getElementById('rf-dock');
+      const help = document.getElementById('rf-help');
+      const helpToggle = document.getElementById('rfHelpToggle');
+      const helpClose = document.getElementById('rfHelpClose');
 
-      function showTopbar() {
-        if (topbar) topbar.setAttribute('aria-hidden', 'false');
-      }
-
-      function hideSplash() {
+      function ready() {
         if (splash) splash.classList.add('is-hidden');
-        showTopbar();
+        if (dock) dock.hidden = false;
+        document.body.classList.add('rf-admin--ready');
       }
 
-      setTimeout(hideSplash, 1400);
-      window.addEventListener('load', function () {
-        setTimeout(hideSplash, 700);
-      });
+      setTimeout(ready, 1200);
+      window.addEventListener('load', function () { setTimeout(ready, 500); });
+
+      if (helpToggle && help) {
+        helpToggle.addEventListener('click', function () {
+          const open = !help.hidden;
+          help.hidden = open;
+          helpToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+        });
+      }
+      if (helpClose && help) {
+        helpClose.addEventListener('click', function () {
+          help.hidden = true;
+          if (helpToggle) helpToggle.setAttribute('aria-expanded', 'false');
+        });
+      }
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', function (user) {
-          if (!user) {
-            window.netlifyIdentity.on('login', hideSplash);
-          }
+          if (!user) window.netlifyIdentity.on('login', ready);
         });
       }
     })();

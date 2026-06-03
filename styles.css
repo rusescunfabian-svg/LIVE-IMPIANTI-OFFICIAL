@@ -663,21 +663,35 @@ body.nav-open {
   .page-home .hero__overlay {
     display: block;
     z-index: 1;
-    background: linear-gradient(
-      to top,
-      rgba(10, 15, 29, 0.55) 0%,
-      rgba(10, 15, 29, 0.12) 10%,
-      transparent 18%
-    ) !important;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 18, 28, 0.82) 0%,
+        rgba(8, 18, 28, 0.5) 22%,
+        rgba(8, 18, 28, 0.28) 55%,
+        rgba(8, 18, 28, 0.22) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgba(10, 15, 29, 0.35) 0%,
+        rgba(10, 15, 29, 0.08) 8%,
+        transparent 14%
+      ) !important;
+  }
+  .page-home .navbar {
+    padding-top: env(safe-area-inset-top, 0);
   }
   .page-home .navbar:not(.scrolled) .navbar__glass {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    background: rgba(15, 25, 35, 0.94) !important;
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
   }
   .page-home .navbar:not(.scrolled) {
-    border-bottom: none !important;
-    box-shadow: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25) !important;
+  }
+  .page-home .navbar:not(.scrolled) .navbar__logo-img {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
   }
   .page-home .hero__wrap {
     grid-area: hero-stack;
@@ -732,6 +746,26 @@ body.nav-open {
     margin-right: auto;
     line-height: 1.55;
     max-width: 100%;
+    font-weight: 600;
+    color: #fff;
+    text-shadow:
+      0 0 2px rgba(0, 0, 0, 1),
+      0 2px 8px rgba(0, 0, 0, 0.9),
+      0 4px 24px rgba(0, 0, 0, 0.75);
+  }
+  .page-home .hero__title {
+    text-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.85),
+      0 8px 32px rgba(0, 0, 0, 0.65);
+  }
+  .page-home .hero__badge {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  }
+  .page-home .hero__btn--outline {
+    background: rgba(15, 25, 35, 0.5);
+    border-color: rgba(255, 255, 255, 0.92);
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
   .page-home .hero__actions {
     flex-direction: row;
@@ -753,13 +787,20 @@ body.nav-open {
     width: 100%;
     gap: 10px;
     margin-top: 0;
-    padding: 10px 16px max(12px, env(safe-area-inset-bottom));
+    padding: 12px 16px max(14px, env(safe-area-inset-bottom));
     border-top: none;
     background: transparent;
   }
-  .page-home .hero__stat-num,
+  .page-home .hero__stat-num {
+    text-shadow:
+      0 0 3px rgba(0, 0, 0, 1),
+      0 2px 12px rgba(0, 0, 0, 0.95),
+      0 0 28px rgba(0, 0, 0, 0.6);
+  }
   .page-home .hero__stat-label {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 0, 0, 0.55);
+    text-shadow:
+      0 0 2px rgba(0, 0, 0, 1),
+      0 2px 8px rgba(0, 0, 0, 0.9);
   }
   .page-home .hero__stat {
     text-align: center;
@@ -2103,6 +2144,15 @@ a.contact-item__value:hover { color: var(--green); }
   flex-direction: column;
   gap: 16px;
 }
+.contacts__map-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contacts__map-buttons .btn--full {
+  width: 100%;
+  justify-content: center;
+}
 .map-info {
   display: flex;
   align-items: flex-start;
@@ -2131,8 +2181,13 @@ a.contact-item__value:hover { color: var(--green); }
 }
 .btn--review svg { color: #fbbc04; fill: #fbbc04; stroke: none; }
 @media (max-width: 768px) {
-  .contacts__map-block { grid-template-columns: 1fr; }
+  .contacts__map-block {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
   .contacts__map-wrap { height: 260px; }
+  .contacts__map-actions { gap: 14px; }
+  .contacts__map-buttons { gap: 10px; }
 }
 
 .form-success {
@@ -3035,9 +3090,9 @@ body:has(.proj-lightbox.open) .floating-contacts {
 /* Hero mobil – override finale */
 @media (max-width: 767px) {
   .page-home .navbar:not(.scrolled) .navbar__glass {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    background: rgba(15, 25, 35, 0.94) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
   }
   .page-home .hero {
     display: grid !important;

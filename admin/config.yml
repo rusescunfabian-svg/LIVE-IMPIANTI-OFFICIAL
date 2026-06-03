@@ -28,8 +28,134 @@ slug:
   sanitize_replacement: "-"
 
 collections:
+  - name: home
+    label: "01 · Pagina Home (hero e statistiche)"
+    files:
+      - name: home
+        label: Hero, statistiche 1200+/20+/100%, CTA
+        file: content/home.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: "Titolo riga 1", name: titoloRiga1, widget: string }
+              - { label: "Parola in evidenza", name: titoloAccent, widget: string }
+              - { label: "Titolo riga 2", name: titoloRiga2, widget: string }
+              - { label: Sottotitolo, name: sottotitolo, widget: text }
+              - { label: "Pulsante primario", name: pulsantePrimario, widget: string }
+              - { label: "Link pulsante primario", name: pulsantePrimarioLink, widget: string }
+              - { label: "Pulsante secondario", name: pulsanteSecondario, widget: string }
+              - { label: "Link pulsante secondario", name: pulsanteSecondarioLink, widget: string }
+              - label: Statistiche in fondo al hero (1200+, 20+, 100%)
+                name: statistiche
+                widget: list
+                max: 3
+                fields:
+                  - { label: Numero, name: numero, widget: number }
+                  - { label: Suffisso (+, %), name: suffisso, widget: string, required: false }
+                  - { label: Etichetta, name: etichetta, widget: string }
+          - label: Sezione Progetti (intestazione)
+            name: sezioneProgetti
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Tag, name: tag, widget: string }
+              - { label: Titolo, name: titolo, widget: string }
+              - { label: Descrizione, name: descrizione, widget: text }
+          - label: Fascia CTA
+            name: cta
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Titolo, name: titolo, widget: string }
+              - { label: Descrizione, name: descrizione, widget: text }
+              - { label: Testo pulsante, name: pulsante, widget: string }
+              - { label: Link pulsante, name: pulsanteLink, widget: string }
+
+  - name: servizi
+    label: "02 · Card Servizi (homepage)"
+    files:
+      - name: servizi
+        label: Elenco servizi in Home
+        file: content/servizi.json
+        fields:
+          - label: Intestazione sezione
+            name: intestazione
+            widget: object
+            fields:
+              - { label: Tag, name: tag, widget: string }
+              - { label: Titolo, name: titolo, widget: string }
+              - { label: Descrizione, name: descrizione, widget: text }
+          - label: Servizi
+            name: voci
+            widget: list
+            summary: "{{titolo}}"
+            fields:
+              - label: Icona
+                name: icona
+                widget: select
+                options:
+                  - { label: "Full electric", value: elettrico }
+                  - { label: Fotovoltaico, value: fotovoltaico }
+                  - { label: Radiante, value: radiante }
+                  - { label: Domotica, value: domotica }
+                  - { label: "VMC", value: vmc }
+                  - { label: "Centrali termiche", value: centrali }
+              - { label: Titolo, name: titolo, widget: string }
+              - { label: Descrizione, name: descrizione, widget: text }
+              - { label: Ordine, name: ordine, widget: number, default: 1 }
+
+  - name: chi-siamo
+    label: "03 · Sezione Chi siamo"
+    files:
+      - name: chi-siamo
+        label: Testi Chi siamo
+        file: content/chi-siamo.json
+        fields:
+          - label: Intestazione
+            name: intestazione
+            widget: object
+            fields:
+              - { label: Tag, name: tag, widget: string }
+              - { label: "Titolo LIVE", name: titoloLive, widget: string }
+              - { label: "Titolo IMPIANTI", name: titoloImpianti, widget: string }
+          - { label: Testo principale, name: lead, widget: text }
+          - label: Punti di forza
+            name: puntiForza
+            widget: list
+            fields:
+              - { label: Titolo, name: titolo, widget: string }
+              - { label: Testo, name: testo, widget: text }
+          - label: Barra statistiche
+            name: barraStatistiche
+            widget: list
+            fields:
+              - { label: Valore, name: valore, widget: string }
+              - { label: Etichetta, name: etichetta, widget: string }
+          - label: Pannello visivo (destra)
+            name: pannelloVisivo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Sopratitolo, name: overline, widget: string }
+              - { label: Sottotitolo, name: sottotitolo, widget: string }
+              - label: Statistiche pannello
+                name: statistiche
+                widget: list
+                fields:
+                  - { label: Valore, name: valore, widget: string }
+                  - { label: Etichetta, name: etichetta, widget: string }
+                  - { label: "In evidenza (verde)", name: accent, widget: boolean, default: false }
+              - label: Pillole
+                name: pillole
+                widget: list
+                field: { label: Testo, name: pillola, widget: string }
+
   - name: catalogo
-    label: Catalogo progetti
+    label: "04 · Catalogo progetti"
     files:
       - name: progetti
         label: Tutti i progetti
@@ -140,55 +266,8 @@ collections:
                 default: false
                 hint: "Tutti i progetti della categoria compaiono nel carosello; questo marca le priorità."
 
-  - name: home
-    label: Impostazioni Home
-    files:
-      - name: home
-        label: Hero, statistiche e CTA
-        file: content/home.json
-        fields:
-          - label: Hero
-            name: hero
-            widget: object
-            collapsed: false
-            fields:
-              - { label: Badge, name: badge, widget: string }
-              - { label: "Titolo riga 1", name: titoloRiga1, widget: string }
-              - { label: "Parola in evidenza", name: titoloAccent, widget: string }
-              - { label: "Titolo riga 2", name: titoloRiga2, widget: string }
-              - { label: Sottotitolo, name: sottotitolo, widget: text }
-              - { label: "Pulsante primario", name: pulsantePrimario, widget: string }
-              - { label: "Link pulsante primario", name: pulsantePrimarioLink, widget: string }
-              - { label: "Pulsante secondario", name: pulsanteSecondario, widget: string }
-              - { label: "Link pulsante secondario", name: pulsanteSecondarioLink, widget: string }
-              - label: Statistiche (1200+, 20+, 100%)
-                name: statistiche
-                widget: list
-                max: 3
-                fields:
-                  - { label: Numero, name: numero, widget: number }
-                  - { label: Suffisso (+, %), name: suffisso, widget: string, required: false }
-                  - { label: Etichetta, name: etichetta, widget: string }
-          - label: Sezione Progetti (intestazione)
-            name: sezioneProgetti
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Tag, name: tag, widget: string }
-              - { label: Titolo, name: titolo, widget: string }
-              - { label: Descrizione, name: descrizione, widget: text }
-          - label: Fascia CTA
-            name: cta
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Titolo, name: titolo, widget: string }
-              - { label: Descrizione, name: descrizione, widget: text }
-              - { label: Testo pulsante, name: pulsante, widget: string }
-              - { label: Link pulsante, name: pulsanteLink, widget: string }
-
   - name: azienda
-    label: Dati azienda e contatti
+    label: "05 · Azienda, contatti e mappa"
     files:
       - name: azienda
         label: Telefono, email, sede, footer
@@ -223,87 +302,8 @@ collections:
               - { label: Link Privacy, name: linkPrivacy, widget: string }
               - { label: Link Cookie, name: linkCookie, widget: string }
 
-  - name: servizi
-    label: Testi servizi
-    files:
-      - name: servizi
-        label: Card servizi in Home
-        file: content/servizi.json
-        fields:
-          - label: Intestazione sezione
-            name: intestazione
-            widget: object
-            fields:
-              - { label: Tag, name: tag, widget: string }
-              - { label: Titolo, name: titolo, widget: string }
-              - { label: Descrizione, name: descrizione, widget: text }
-          - label: Servizi
-            name: voci
-            widget: list
-            summary: "{{titolo}}"
-            fields:
-              - label: Icona
-                name: icona
-                widget: select
-                options:
-                  - { label: "Full electric", value: elettrico }
-                  - { label: Fotovoltaico, value: fotovoltaico }
-                  - { label: Radiante, value: radiante }
-                  - { label: Domotica, value: domotica }
-                  - { label: "VMC", value: vmc }
-                  - { label: "Centrali termiche", value: centrali }
-              - { label: Titolo, name: titolo, widget: string }
-              - { label: Descrizione, name: descrizione, widget: text }
-              - { label: Ordine, name: ordine, widget: number, default: 1 }
-
-  - name: chi-siamo
-    label: Chi siamo
-    files:
-      - name: chi-siamo
-        label: Testi sezione Chi siamo
-        file: content/chi-siamo.json
-        fields:
-          - label: Intestazione
-            name: intestazione
-            widget: object
-            fields:
-              - { label: Tag, name: tag, widget: string }
-              - { label: "Titolo LIVE", name: titoloLive, widget: string }
-              - { label: "Titolo IMPIANTI", name: titoloImpianti, widget: string }
-          - { label: Testo principale, name: lead, widget: text }
-          - label: Punti di forza
-            name: puntiForza
-            widget: list
-            fields:
-              - { label: Titolo, name: titolo, widget: string }
-              - { label: Testo, name: testo, widget: text }
-          - label: Barra statistiche
-            name: barraStatistiche
-            widget: list
-            fields:
-              - { label: Valore, name: valore, widget: string }
-              - { label: Etichetta, name: etichetta, widget: string }
-          - label: Pannello visivo (destra)
-            name: pannelloVisivo
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Sopratitolo, name: overline, widget: string }
-              - { label: Sottotitolo, name: sottotitolo, widget: string }
-              - label: Statistiche pannello
-                name: statistiche
-                widget: list
-                fields:
-                  - { label: Valore, name: valore, widget: string }
-                  - { label: Etichetta, name: etichetta, widget: string }
-                  - { label: "In evidenza (verde)", name: accent, widget: boolean, default: false }
-              - label: Pillole
-                name: pillole
-                widget: list
-                field: { label: Testo, name: pillola, widget: string }
-
   - name: legale
-    label: Privacy e Cookie Policy
+    label: "06 · Privacy e Cookie Policy"
     files:
       - name: legale
         label: Documenti legali (testi in italiano)

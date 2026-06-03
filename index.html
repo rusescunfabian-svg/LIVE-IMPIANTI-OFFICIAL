@@ -19,21 +19,23 @@
   <meta property="og:image" content="https://www.liveimpianti.itimages/home-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="images/home-hero.webp" type="image/webp" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <style>
-    /* Hero mobil – prioritate maximă (navbar + overlay) */
+    /* Hero mobil – navbar întunecat, overlay, text lizibil */
     @media (max-width: 767px) {
       body.page-home .navbar:not(.scrolled) .navbar__glass,
       #navbar:not(.scrolled) .navbar__glass {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
+        background: rgba(15, 25, 35, 0.94) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
       }
       body.page-home .navbar:not(.scrolled),
       #navbar:not(.scrolled) {
-        background: transparent !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25) !important;
+      }
+      body.page-home .navbar:not(.scrolled) .navbar__logo-img {
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
       }
       #home.hero,
       .page-home .hero {
@@ -52,7 +54,19 @@
       }
       #home .hero__overlay,
       .page-home .hero__overlay {
-        background: linear-gradient(to top, rgba(10, 15, 29, 0.55) 0%, transparent 18%) !important;
+        background:
+          linear-gradient(180deg, rgba(8, 18, 28, 0.82) 0%, rgba(8, 18, 28, 0.28) 60%, rgba(8, 18, 28, 0.2) 100%),
+          linear-gradient(to top, rgba(10, 15, 29, 0.32) 0%, transparent 14%) !important;
+      }
+      #home .hero__subtitle,
+      .page-home .hero__subtitle {
+        font-weight: 600 !important;
+        text-shadow: 0 0 2px #000, 0 2px 12px rgba(0, 0, 0, 0.9) !important;
+      }
+      #home .hero__btn--outline,
+      .page-home .hero__btn--outline {
+        background: rgba(15, 25, 35, 0.5) !important;
+        border-color: rgba(255, 255, 255, 0.92) !important;
       }
       #home .hero__bg-img,
       .page-home .hero__bg-img {
@@ -102,6 +116,13 @@
         flex: 0 0 auto !important;
         background: transparent !important;
         margin-top: 0 !important;
+        border-top: none !important;
+      }
+      #home .hero__stat-num,
+      #home .hero__stat-label,
+      .page-home .hero__stat-num,
+      .page-home .hero__stat-label {
+        text-shadow: 0 0 3px #000, 0 2px 12px rgba(0, 0, 0, 0.95) !important;
       }
       #home .hero__stat-num,
       #home .hero__stat-label,
@@ -551,6 +572,16 @@
         </iframe>
       </div>
       <div class="contacts__map-actions">
+        <div class="contacts__map-buttons">
+          <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9109247,12.3884606,17z/data=!4m6!3m5!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoMapsLink" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apri su Google Maps
+          </a>
+          <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9112433,12.3828144,16z/data=!4m17!1m8!3m7!1s0x132f5f0658f51307:0xe6a911555ec99b51!2sPiazza+Attilio+Omodei+Zorini,+14,+00166+Roma+RM!3b1!8m2!3d41.9110317!4d12.3882539!16s%2Fg%2F11rg66lx86!3m7!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!9m1!1b1!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoReviewLink" target="_blank" rel="noopener" class="btn btn--review btn--full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Lascia una recensione
+          </a>
+        </div>
         <div class="map-info">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <div>
@@ -558,14 +589,6 @@
             <span data-sito-indirizzo>Piazza Attilio Omodei Zorini, 14 – 00166 Roma (RM)</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9109247,12.3884606,17z/data=!4m6!3m5!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoMapsLink" target="_blank" rel="noopener" class="btn btn--primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Apri su Google Maps
-        </a>
-        <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9112433,12.3828144,16z/data=!4m17!1m8!3m7!1s0x132f5f0658f51307:0xe6a911555ec99b51!2sPiazza+Attilio+Omodei+Zorini,+14,+00166+Roma+RM!3b1!8m2!3d41.9110317!4d12.3882539!16s%2Fg%2F11rg66lx86!3m7!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!9m1!1b1!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoReviewLink" target="_blank" rel="noopener" class="btn btn--review">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Lascia una recensione
-        </a>
       </div>
     </div>
 
