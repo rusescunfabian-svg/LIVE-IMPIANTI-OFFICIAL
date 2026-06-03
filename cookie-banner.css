@@ -1,0 +1,124 @@
+/* Banner cookie – pagine senza styles.css completo (es. progetti.html) */
+:root {
+  --green: #00a79e;
+  --green-dark: #007a73;
+  --green-mid: #00c4b9;
+  --white: #ffffff;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.cookie-banner .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  white-space: nowrap;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.cookie-banner .btn--primary {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.cookie-banner .btn--primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10070;
+  padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+  background: rgba(15, 25, 35, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.cookie-banner[hidden],
+.cookie-banner:not(.cookie-banner--open) {
+  display: none !important;
+}
+
+.cookie-banner.cookie-banner--open {
+  display: block !important;
+  z-index: 10070;
+}
+
+.cookie-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  max-width: 52rem;
+  font-family: var(--font);
+}
+
+.cookie-banner a {
+  color: var(--green-mid);
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.cookie-banner__reject {
+  background: #b0bec8 !important;
+  color: #0f1923 !important;
+  border-color: #b0bec8 !important;
+}
+.cookie-banner__reject:hover {
+  background: #dce4ea !important;
+  border-color: #dce4ea !important;
+  color: #0f1923 !important;
+}
+
+.cookie-banner__link {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+
+.cookie-banner__link:hover {
+  color: var(--white);
+}
+
+@media (max-width: 640px) {
+  .cookie-banner__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-banner__actions {
+    justify-content: stretch;
+  }
+  .cookie-banner__actions .btn {
+    flex: 1;
+  }
+}

@@ -1,0 +1,726 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Live Impianti S.r.l. – Impianti ad Alta Efficienza</title>
+  <meta name="description" content="Live Impianti S.r.l. – Impianti fotovoltaici, climatizzazione, sistemi radianti, pompe di calore e centrali termiche chiavi in mano a Roma e nel Centro Italia." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="IT-RM" />
+  <meta name="geo.placename" content="Roma" />
+  <meta name="theme-color" content="#0f1923" />
+  <link rel="canonical" href="https://www.liveimpianti.it/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Live Impianti S.r.l." />
+  <meta property="og:title" content="Live Impianti S.r.l. – Impianti ad Alta Efficienza" />
+  <meta property="og:description" content="Impianti full electric, fotovoltaico, radiante e centrali termiche a Roma e provincia. Progettazione e installazione chiavi in mano." />
+  <meta property="og:url" content="https://www.liveimpianti.it/" />
+  <meta property="og:image" content="https://www.liveimpianti.itimages/home-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" as="image" href="images/home-hero.webp" type="image/webp" />
+  <link rel="stylesheet" href="styles.css?v=7" />
+  <style>
+    /* Hero mobil – prioritate maximă (navbar + overlay) */
+    @media (max-width: 767px) {
+      body.page-home .navbar:not(.scrolled) .navbar__glass,
+      #navbar:not(.scrolled) .navbar__glass {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      body.page-home .navbar:not(.scrolled),
+      #navbar:not(.scrolled) {
+        background: transparent !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+      }
+      #home.hero,
+      .page-home .hero {
+        display: grid !important;
+        grid-template-areas: "hero-stack" !important;
+        min-height: 100dvh !important;
+        min-height: 100svh !important;
+      }
+      #home .hero__bg,
+      .page-home .hero__bg {
+        grid-area: hero-stack !important;
+        position: absolute !important;
+        inset: 0 !important;
+        height: 100% !important;
+        min-height: 100% !important;
+      }
+      #home .hero__overlay,
+      .page-home .hero__overlay {
+        background: linear-gradient(to top, rgba(10, 15, 29, 0.55) 0%, transparent 18%) !important;
+      }
+      #home .hero__bg-img,
+      .page-home .hero__bg-img {
+        object-position: center 58% !important;
+        transform: scale(1.18) !important;
+        transform-origin: center 58% !important;
+      }
+      #home .hero__wrap,
+      .page-home .hero__wrap {
+        grid-area: hero-stack !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        min-height: 100dvh !important;
+        min-height: 100svh !important;
+        padding: 0 !important;
+      }
+      #home .hero__center,
+      .page-home .hero__center {
+        flex: 1 1 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: calc(56px + env(safe-area-inset-top, 0px) + 8px) 16px 8px !important;
+      }
+      #home .hero__content,
+      .page-home .hero__content {
+        margin: 0 auto !important;
+        text-align: center !important;
+        max-width: 22.5rem;
+      }
+      #home .hero__badge,
+      .page-home .hero__badge {
+        justify-content: center !important;
+        width: 100%;
+      }
+      #home .hero__badge::before,
+      .page-home .hero__badge::before {
+        display: none !important;
+      }
+      #home .hero__actions,
+      .page-home .hero__actions {
+        justify-content: center !important;
+      }
+      #home .hero__stats,
+      .page-home .hero__stats {
+        flex: 0 0 auto !important;
+        background: transparent !important;
+        margin-top: 0 !important;
+      }
+      #home .hero__stat-num,
+      #home .hero__stat-label,
+      .page-home .hero__stat-num,
+      .page-home .hero__stat-label {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 0, 0, 0.55) !important;
+      }
+    }
+  </style>
+  <script src="cookie-banner.js?v=3" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Live Impianti S.r.l.",
+    "url": "https://www.liveimpianti.it",
+    "logo": "https://www.liveimpianti.itimages/liveimpianti_logo.png",
+    "image": "https://www.liveimpianti.itimages/home-hero.jpg",
+    "telephone": "+39-388-169-2517",
+    "email": "info@liveimpianti.it",
+    "taxID": "IT12024031002",
+    "vatID": "IT12024031002",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Piazza Attilio Omodei Zorini, 14",
+      "addressLocality": "Roma",
+      "postalCode": "00166",
+      "addressRegion": "RM",
+      "addressCountry": "IT"
+    },
+    "areaServed": ["Roma", "Lazio", "Centro Italia"],
+    "description": "Progettazione e installazione di impianti fotovoltaici, pompe di calore, sistemi radianti e centrali termiche."
+  }
+  </script>
+</head>
+<body class="page-home">
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Informativa cookie" aria-live="polite" aria-hidden="true">
+    <div class="cookie-banner__inner">
+      <p>Utilizziamo cookie tecnici e, previo consenso, cookie per migliorare l’esperienza. Leggi la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      <div class="cookie-banner__actions">
+        <button type="button" id="cookieAccept" class="btn btn--primary">Accetta</button>
+        <button type="button" id="cookieReject" class="btn btn--ghost cookie-banner__reject">Solo necessari</button>
+        <a href="cookie-policy.html" class="cookie-banner__link">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="navbar" id="navbar">
+    <div class="navbar__glass" aria-hidden="true"></div>
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo">
+        <img src="images/liveimpianti_logo.png" alt="Live Impianti S.r.l." class="navbar__logo-img" decoding="async" />
+      </a>
+      <nav class="navbar__drawer" id="navDrawer" aria-label="Menu principale" aria-hidden="true">
+        <a href="#servizi">Servizi</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="#perche-noi">Chi siamo</a>
+        <a href="#contatti" class="navbar__drawer-cta">Contatti</a>
+      </nav>
+      <a href="#contatti" class="btn btn--primary navbar__cta">Richiedi preventivo</a>
+      <button class="navbar__burger" id="burgerBtn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="navDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="home" aria-label="Home">
+    <div class="hero__bg" aria-hidden="true">
+      <picture>
+        <source srcset="images/home-hero.webp" type="image/webp" />
+        <img
+          src="images/home-hero.jpg"
+          class="hero__bg-img"
+          alt=""
+          width="1920"
+          height="1080"
+          sizes="100vw"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__wrap">
+      <div class="hero__center">
+        <div class="hero__aside" aria-hidden="true"></div>
+        <div class="hero__content">
+          <span class="hero__badge" data-sito="home.hero.badge">Indipendenza e sostenibilit&agrave; energetica</span>
+
+          <h1 class="hero__title">
+            <span data-sito="home.hero.titoloRiga1">Impianti</span> <span class="hero__title-accent" data-sito="home.hero.titoloAccent">intelligenti</span><br />
+            <span data-sito="home.hero.titoloRiga2">per il tuo futuro energetico</span>
+          </h1>
+
+          <p class="hero__subtitle" data-sito="home.hero.sottotitolo">
+            Progettiamo e installiamo impianti: fotovoltaici, climatizzazione, sistemi radianti, pompe di calore e centrali termiche
+            realizzati chiavi in mano a Roma e nel Centro Italia.
+          </p>
+
+          <div class="hero__actions">
+            <a href="progetti.html" class="hero__btn hero__btn--primary" data-sito="home.hero.pulsantePrimario" data-sito-link="home.hero.pulsantePrimarioLink">Scopri i nostri progetti</a>
+            <a href="#contatti" class="hero__btn hero__btn--outline" data-sito="home.hero.pulsanteSecondario" data-sito-link="home.hero.pulsanteSecondarioLink">Contattaci</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat" data-hero-stat>
+          <span class="hero__stat-num" data-countup data-target="1200" data-suffix="+">0</span>
+          <span class="hero__stat-label">Impianti realizzati</span>
+        </div>
+        <div class="hero__stat" data-hero-stat>
+          <span class="hero__stat-num" data-countup data-target="20" data-suffix="+">0</span>
+          <span class="hero__stat-label">Anni di esperienza</span>
+        </div>
+        <div class="hero__stat" data-hero-stat>
+          <span class="hero__stat-num" data-countup data-target="100" data-suffix="%">0</span>
+          <span class="hero__stat-label">Soddisfazione cliente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SERVIZI ═══════════════════════════ -->
+  <section class="services" id="servizi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-sito="servizi.intestazione.tag">I nostri servizi</span>
+        <h2 class="section-title" data-sito="servizi.intestazione.titolo">Soluzioni complete per l'efficienza energetica</h2>
+        <p class="section-desc" data-sito="servizi.intestazione.descrizione">Dalla progettazione all'installazione, offriamo un servizio chiavi in mano per ogni tipo di impianto.</p>
+      </div>
+      <div class="services__grid" id="sitoServiziGrid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROGETTI ═══════════════════════════ -->
+  <section class="projects" id="progetti">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-sito="home.sezioneProgetti.tag">Portfolio</span>
+        <h2 class="section-title" data-sito="home.sezioneProgetti.titolo">I nostri progetti</h2>
+        <p class="section-desc" data-sito="home.sezioneProgetti.descrizione">Ogni progetto &egrave; una soluzione su misura. Esplora le nostre realizzazioni.</p>
+      </div>
+
+      <div class="projects__accordion">
+
+        <!-- ── CATEGORIA 1: Ville e abitazioni full electric ── -->
+        <div class="acc-item" data-category="0" data-cat-id="ville">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Ville e abitazioni full electric</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner">
+              <img src="images/cat-ville.jpg" alt="Ville e abitazioni full electric" class="acc-banner-img" style="object-position: center 42%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Ville e abitazioni full electric</h3>
+                <p>Abitazioni senza gas, progettate per massima efficienza e autonomia energetica.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="ville"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 2: Sistemi radianti e climatizzazione invisibile ── -->
+        <div class="acc-item" data-category="1" data-cat-id="radianti">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M6 20V8M18 20V8M2 8l10-6 10 6"/><path d="M10 20v-4h4v4"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Sistemi radianti e climatizzazione invisibile</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--2">
+              <img src="images/cat-radianti-final.jpg" alt="Sistemi radianti e climatizzazione invisibile" class="acc-banner-img" style="object-position: center 34%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Sistemi radianti e climatizzazione invisibile</h3>
+                <p>Comfort totale e design pulito: impianti nascosti a pavimento e a soffitto.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="radianti"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 3: Impianti fotovoltaici industriali e pubblici ── -->
+        <div class="acc-item" data-category="2" data-cat-id="fotovoltaico">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Impianti fotovoltaici industriali e pubblici</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--3">
+              <img src="images/cat-fotovoltaico.jpg" alt="Impianti fotovoltaici industriali e pubblici" class="acc-banner-img" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Impianti fotovoltaici industriali e pubblici</h3>
+                <p>Da 40 kW a 500 kW: impianti per aziende, enti pubblici e strutture produttive.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="fotovoltaico"></div>
+          </div>
+        </div>
+
+        <!-- ── CATEGORIA 4: Centrali termiche e grandi impianti ── -->
+        <div class="acc-item" data-category="3" data-cat-id="centrali">
+          <button class="acc-header" aria-expanded="false">
+            <div class="acc-header__left">
+              <div class="acc-icon acc-icon--4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </div>
+              <div>
+                <h3 class="acc-header__title">Centrali termiche e grandi impianti</h3>
+              </div>
+            </div>
+            <div class="acc-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-category-banner acc-category-banner--4">
+              <img src="images/cat-centrali-final.jpg" alt="Centrali termiche e grandi impianti" class="acc-banner-img" style="object-position: center 38%;" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="acc-banner-overlay">
+                <h3>Centrali termiche e grandi impianti</h3>
+                <p>Impianti di riscaldamento e raffrescamento su larga scala per edifici residenziali, commerciali e ricettivi.</p>
+              </div>
+            </div>
+            <div class="acc-projects" data-progetti-cat="centrali"></div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+
+      <div class="projects__cta">
+        <a href="progetti.html" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Vedi tutti i progetti
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CHI SIAMO ═══════════════════════════ -->
+  <section class="why-us" id="perche-noi">
+    <div class="container">
+      <div class="why-us__inner">
+
+        <!-- ─ Left: testo + perk ─ -->
+        <div class="why-us__content">
+          <span class="section-tag section-tag--light" data-sito="chiSiamo.intestazione.tag">Chi siamo</span>
+          <h2 class="section-title section-title--light"><span class="section-title__live" data-sito="chiSiamo.intestazione.titoloLive">LIVE</span> <span class="section-title__impianti" data-sito="chiSiamo.intestazione.titoloImpianti">IMPIANTI</span></h2>
+          <p class="why-us__lead" data-sito="chiSiamo.lead">
+            Siamo un'azienda specializzata nella progettazione e realizzazione di impianti ad alta efficienza energetica.
+            Collaboriamo con privati, aziende e strutture ricettive per sviluppare soluzioni innovative che uniscono risparmio
+            energetico, comfort abitativo e tecnologie all'avanguardia.
+          </p>
+
+          <div class="why-us__perks" id="sitoChiSiamoPerks"></div>
+
+          <div class="why-us__stats-bar" id="sitoChiSiamoBar"></div>
+        </div>
+
+        <!-- ─ Right: visual panel ─ -->
+        <div class="why-us__visual">
+
+          <!-- Card principale -->
+          <div class="visual-card">
+            <div class="visual-card__header">
+              <div class="vc-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <p class="vc-overline" data-sito="chiSiamo.pannelloVisivo.overline">Efficienza energetica</p>
+                <p class="vc-subtitle" data-sito="chiSiamo.pannelloVisivo.sottotitolo">Risultati certificati</p>
+              </div>
+            </div>
+            <div class="visual-stats" id="sitoVisualStats"></div>
+          </div>
+
+          <div class="visual-pills" id="sitoVisualPills"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA STRIP ═══════════════════════════ -->
+  <section class="cta-strip">
+    <div class="container cta-strip__inner">
+      <div>
+        <h2 data-sito="home.cta.titolo">Pronto a rendere la tua casa o azienda più efficiente?</h2>
+        <p data-sito="home.cta.descrizione">Contattaci per un sopralluogo gratuito e un preventivo senza impegno.</p>
+      </div>
+      <a href="#contatti" class="btn btn--white btn--lg" data-sito="home.cta.pulsante" data-sito-link="home.cta.pulsanteLink">Richiedi un preventivo gratuito</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CONTATTI ═══════════════════════════ -->
+  <section class="contacts" id="contatti">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-sito="azienda.sezioneContatti.tag">Contattaci</span>
+        <h2 class="section-title" data-sito="azienda.sezioneContatti.titolo">Siamo a tua disposizione</h2>
+        <p class="section-desc" data-sito="azienda.sezioneContatti.descrizione">Scrivici o chiamaci per qualsiasi informazione. Risponderemo entro 24 ore.</p>
+      </div>
+
+      <div class="contacts__grid">
+        <div class="contacts__info">
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Telefono</span>
+              <a href="tel:+393881692517" class="contact-item__value" data-sito-tel data-sito-text>388 169 2517</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Email</span>
+              <a href="mailto:info@liveimpianti.it" class="contact-item__value" data-sito-email data-sito-text>info@liveimpianti.it</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Sede</span>
+              <span class="contact-item__value" data-sito-indirizzo>Piazza Attilio Omodei Zorini, 14<br />00166 Roma (RM)</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="contact-item__label">Orari</span>
+              <span class="contact-item__value" data-sito="azienda.orari">Lun – Ven: 08:30 – 17:30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Netlify: copia nascosta per rilevamento al deploy -->
+        <form name="contatti" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+          <input type="hidden" name="form-name" value="contatti" />
+          <input name="bot-field" />
+          <input name="nome" />
+          <input name="email" />
+          <input name="telefono" />
+          <input name="servizio" />
+          <textarea name="messaggio"></textarea>
+        </form>
+
+        <form class="contacts__form" id="contactForm" name="contatti" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contatti" />
+          <input type="text" name="bot-field" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome e cognome *</label>
+              <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="mario@email.it" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+39 000 000 0000" />
+          </div>
+          <div class="form-group">
+            <label for="servizio">Tipo di impianto</label>
+            <select id="servizio" name="servizio">
+              <option value="">Seleziona un servizio...</option>
+              <option>Impianto full electric / pompa di calore</option>
+              <option>Impianto fotovoltaico</option>
+              <option>Sistema radiante</option>
+              <option>Centrale termica</option>
+              <option>VMC e deumidificazione</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="messaggio">Messaggio *</label>
+            <textarea id="messaggio" name="messaggio" rows="4" placeholder="Descrivi brevemente il tuo progetto o la tua richiesta..." required></textarea>
+          </div>
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="privacy" name="privacy" required />
+            <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a> *</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Invia richiesta
+          </button>
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Messaggio inviato! Ti contatteremo presto.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ── Google Maps + recensioni ── -->
+    <div class="contacts__map-block">
+      <div class="contacts__map-wrap">
+        <iframe
+          id="sitoMappa"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5938.289840910266!2d12.382814376858331!3d41.91124325263407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325f5c1a5504a77%3A0x716755673350beff!2sLive%20Impianti%20Srl!5e0!3m2!1sro!2sit!4v1780507438718!5m2!1sro!2sit"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen title="Sede Live Impianti S.r.l.">
+        </iframe>
+      </div>
+      <div class="contacts__map-actions">
+        <div class="map-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong data-sito="azienda.ragioneSociale">Live Impianti S.r.l.</strong>
+            <span data-sito-indirizzo>Piazza Attilio Omodei Zorini, 14 – 00166 Roma (RM)</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9109247,12.3884606,17z/data=!4m6!3m5!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoMapsLink" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Apri su Google Maps
+        </a>
+        <a href="https://www.google.com/maps/place/Live+Impianti+Srl/@41.9112433,12.3828144,16z/data=!4m17!1m8!3m7!1s0x132f5f0658f51307:0xe6a911555ec99b51!2sPiazza+Attilio+Omodei+Zorini,+14,+00166+Roma+RM!3b1!8m2!3d41.9110317!4d12.3882539!16s%2Fg%2F11rg66lx86!3m7!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!9m1!1b1!16s%2Fg%2F11fx9k301q?entry=ttu" id="sitoReviewLink" target="_blank" rel="noopener" class="btn btn--review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Lascia una recensione
+        </a>
+      </div>
+    </div>
+
+  </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="footer__logo-link">
+          <img src="images/liveimpianti_logo.png" alt="Live Impianti S.r.l." class="footer__logo-img" width="240" height="78" decoding="async" />
+        </a>
+        <p class="footer__tagline" data-sito="azienda.tagline">Indipendenza e sostenibilit&agrave; energetica</p>
+        <p data-sito="azienda.descrizioneBreve">Specialisti in impianti ad alta efficienza a Roma e dintorni. Pompe di calore, fotovoltaico, radiante e centrali termiche.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigazione</h4>
+        <a href="#servizi">Servizi</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#perche-noi">Chi siamo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <div class="footer__links">
+        <h4>Servizi</h4>
+        <a href="#servizi">Full Electric</a>
+        <a href="#servizi">Fotovoltaico</a>
+        <a href="#servizi">Sistemi radianti</a>
+        <a href="#servizi">Centrali termiche</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Contatti</h4>
+        <a href="tel:+393881692517" data-sito-tel data-sito-text>388 169 2517</a>
+        <a href="mailto:info@liveimpianti.it" data-sito-email data-sito-text>info@liveimpianti.it</a>
+        <span data-sito-indirizzo>Piazza Attilio Omodei Zorini, 14<br />00166 Roma (RM)</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span data-sito="azienda.footer.copyright">&copy; 2026 Live Impianti S.r.l. – P.IVA 12024031002</span>
+        <span>
+          <a href="privacy-policy.html" data-sito-link="azienda.footer.linkPrivacy">Privacy Policy</a>
+          <a href="cookie-policy.html" data-sito-link="azienda.footer.linkCookie">Cookie Policy</a>
+          <a href="#" data-cookie-manage>Gestisci cookie</a>
+        </span>
+      </div>
+    </div>
+    <p class="footer__credit">
+      Sito web realizzato da
+      <a href="https://www.rfdigital.it" target="_blank" rel="noopener noreferrer" title="RF Digital – Sviluppo siti web">RF Digital</a>
+    </p>
+  </footer>
+
+  <!-- Lightbox dettaglio progetto (Home) -->
+  <div id="projLightbox" class="proj-lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="proj-lightbox__inner" id="lightboxInner">
+      <div class="proj-lightbox__hero">
+        <img id="lbImg" src="" alt="" />
+        <button type="button" id="lbPrev" class="proj-lightbox__nav proj-lightbox__nav--prev" aria-label="Progetto precedente" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" id="lbNext" class="proj-lightbox__nav proj-lightbox__nav--next" aria-label="Progetto successivo" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <span id="lbCounter" class="proj-lightbox__counter" hidden></span>
+        <button type="button" id="lbClose" class="proj-lightbox__close" aria-label="Chiudi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="proj-lightbox__tag-wrap">
+          <span id="lbTag" class="proj-lightbox__tag"></span>
+        </div>
+      </div>
+      <div class="proj-lightbox__content">
+        <h2 id="lbTitle" class="proj-lightbox__title"></h2>
+        <p class="proj-lightbox__location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="lbLocation"></span>
+        </p>
+        <p id="lbDesc" class="proj-lightbox__desc"></p>
+        <h3 class="proj-lightbox__features-title">Impianti realizzati</h3>
+        <ul id="lbFeatures" class="proj-lightbox__features"></ul>
+        <div class="proj-lightbox__actions">
+          <a href="#contatti" class="btn btn--primary proj-lightbox__cta-main">Richiedi un impianto simile</a>
+          <button type="button" id="lbCloseBottom" class="proj-lightbox__cta-secondary">Chiudi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="site-paths.js"></script>
+  <script src="sito-data.js"></script>
+  <script src="progetti-data.js"></script>
+  <script src="sito-loader.js"></script>
+  <script src="progetti-loader.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const data = await ProgettiLoader.load();
+        ProgettiLoader.renderHome(data);
+      } catch (err) {
+        console.error('Errore caricamento progetti:', err);
+        document.querySelectorAll('[data-progetti-cat]').forEach((el) => {
+          el.innerHTML =
+            '<p class="acc-carousel__empty">Progetti temporaneamente non disponibili. <a href="progetti.html">Vai alla pagina progetti</a> o ricarica la pagina.</p>';
+        });
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+
+<!-- ══════════════ FLOATING CONTACT BUTTONS ══════════════ -->
+<div class="floating-contacts" aria-label="Contatti rapidi">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/393881692517" data-sito-wa target="_blank" rel="noopener noreferrer"
+     class="floating-btn floating-btn--whatsapp" title="Scrivici su WhatsApp"
+     aria-label="Contattaci su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="floating-btn__label">WhatsApp</span>
+  </a>
+
+  <!-- Telefono -->
+  <a href="tel:+393881692517" data-sito-tel class="floating-btn floating-btn--phone" title="Chiamaci ora"
+     aria-label="Chiamaci">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+    </svg>
+    <span class="floating-btn__label">Chiamaci</span>
+  </a>
+
+</div>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        const hash = window.location.hash || "";
+
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+
+          if (hash.includes("invite_token")) {
+            window.netlifyIdentity.open("invite");
+          } else if (hash.includes("recovery_token")) {
+            window.netlifyIdentity.open("recover");
+          } else if (hash.includes("confirmation_token")) {
+            window.netlifyIdentity.open("confirm");
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "intestazione": {
+    "tag": "Chi siamo",
+    "titoloLive": "LIVE",
+    "titoloImpianti": "IMPIANTI"
+  },
+  "lead": "Siamo un'azienda specializzata nella progettazione e realizzazione di impianti ad alta efficienza energetica. Collaboriamo con privati, aziende e strutture ricettive per sviluppare soluzioni innovative che uniscono risparmio energetico, comfort abitativo e tecnologie all'avanguardia.",
+  "puntiForza": [
+    {
+      "titolo": "Progettazione personalizzata",
+      "testo": "Ogni impianto è progettato sulle esigenze specifiche del cliente"
+    },
+    {
+      "titolo": "Qualità senza compromessi",
+      "testo": "Scegliamo tecnologie affidabili e performanti per assicurare massima efficienza e comfort"
+    },
+    {
+      "titolo": "Assistenza continua",
+      "testo": "Supporto tecnico e manutenzione dopo l'installazione"
+    },
+    {
+      "titolo": "Consulenza incentivi",
+      "testo": "Ti supportiamo nell'individuazione delle agevolazioni e degli incentivi disponibili per l'efficientamento energetico"
+    }
+  ],
+  "barraStatistiche": [
+    { "valore": "48h", "etichetta": "primo sopralluogo" },
+    { "valore": "5★", "etichetta": "valutazione media" },
+    { "valore": "F‑GAS", "etichetta": "certificati" }
+  ],
+  "pannelloVisivo": {
+    "overline": "Efficienza energetica",
+    "sottotitolo": "Risultati certificati",
+    "statistiche": [
+      { "valore": "1200+", "etichetta": "Impianti realizzati" },
+      { "valore": "70%", "etichetta": "Risparmio energetico", "accent": true },
+      { "valore": "0 g/CO₂", "etichetta": "Emissioni" }
+    ],
+    "pillole": ["Zero emissioni", "Energia solare", "Alta tecnologia"]
+  }
+}

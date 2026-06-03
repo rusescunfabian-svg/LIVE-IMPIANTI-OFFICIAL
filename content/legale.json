@@ -1,0 +1,78 @@
+{
+  "privacy": {
+    "titolo": "Privacy Policy",
+    "ultimoAggiornamento": "28 maggio 2026",
+    "intro": "La presente informativa descrive come Live Impianti S.r.l. tratta i dati personali degli utenti che visitano il sito www.liveimpianti.it e che utilizzano i moduli di contatto, in conformità al Regolamento (UE) 2016/679 (GDPR) e alla normativa italiana vigente.",
+    "sezioni": [
+      {
+        "titolo": "1. Titolare del trattamento",
+        "testo": "Titolare del trattamento:\nLive Impianti S.r.l.\nPiazza Attilio Omodei Zorini, 14 – 00166 Roma (RM)\nP.IVA 12024031002\nEmail: info@liveimpianti.it\nTelefono: 388 169 2517"
+      },
+      {
+        "titolo": "2. Tipologie di dati trattati",
+        "testo": "Attraverso il sito possono essere trattati:\n• dati di navigazione (indirizzo IP, tipo di browser, pagine visitate, orari di accesso);\n• dati forniti volontariamente tramite il form contatti (nome, email, telefono, messaggio, tipo di servizio richiesto);\n• dati derivanti dall’uso di servizi di terze parti integrati (es. mappa Google Maps)."
+      },
+      {
+        "titolo": "3. Finalità e base giuridica",
+        "testo": "I dati sono trattati per:\n• rispondere alle richieste di informazioni e preventivi (base giuridica: esecuzione di misure precontrattuali e legittimo interesse);\n• adempiere a obblighi di legge;\n• garantire la sicurezza e il corretto funzionamento del sito.\nIl conferimento dei dati contrassegnati come obbligatori nel form è necessario per inviare la richiesta."
+      },
+      {
+        "titolo": "4. Modalità del trattamento e conservazione",
+        "testo": "Il trattamento avviene con strumenti informatici e misure di sicurezza adeguate. I dati delle richieste di contatto sono conservati per il tempo necessario a gestire la pratica commerciale e, in ogni caso, non oltre i termini previsti dalla legge."
+      },
+      {
+        "titolo": "5. Comunicazione e destinatari",
+        "testo": "I dati possono essere comunicati a fornitori tecnici (es. hosting Netlify, servizi email) che agiscono come responsabili del trattamento o autonomi titolari, solo per finalità connesse al servizio. Non è prevista la diffusione dei dati."
+      },
+      {
+        "titolo": "6. Trasferimento dati extra UE",
+        "testo": "Alcuni fornitori (es. servizi cloud) potrebbero trattare dati anche fuori dall’Unione Europea. In tal caso Live Impianti S.r.l. verifica che sussistano garanzie adeguate previste dal GDPR."
+      },
+      {
+        "titolo": "7. Diritti dell’interessato",
+        "testo": "L’interessato può esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità scrivendo a info@liveimpianti.it. Ha inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it)."
+      },
+      {
+        "titolo": "8. Modifiche",
+        "testo": "Il titolare può aggiornare la presente informativa. La data dell’ultimo aggiornamento è indicata in cima alla pagina."
+      }
+    ]
+  },
+  "cookie": {
+    "titolo": "Cookie Policy",
+    "ultimoAggiornamento": "28 maggio 2026",
+    "intro": "Questo sito utilizza cookie e tecnologie simili. Di seguito trovi informazioni su tipologie, finalità e come gestire le preferenze, in conformità alla normativa applicabile (incluso il D.Lgs. 196/2003 come modificato e le linee guida del Garante Privacy).",
+    "sezioni": [
+      {
+        "titolo": "1. Cosa sono i cookie",
+        "testo": "I cookie sono piccoli file di testo che i siti inviano al dispositivo dell’utente, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva."
+      },
+      {
+        "titolo": "2. Cookie utilizzati da questo sito",
+        "testo": "Cookie tecnici (necessari): indispensabili per la navigazione e il funzionamento del sito (es. memorizzazione del consenso cookie). Non richiedono consenso.\n\nCookie di terze parti: la pagina Contatti può includere Google Maps (Google Ireland Limited), che può installare cookie propri. Per maggiori informazioni consulta la policy di Google.\n\nIl pannello di amministrazione /admin/ (riservato al personale autorizzato) può utilizzare servizi Netlify Identity: tali cookie non sono destinati ai visitatori del sito pubblico."
+      },
+      {
+        "titolo": "3. Durata",
+        "testo": "I cookie tecnici hanno durata variabile (di sessione o persistenti per un periodo limitato). Il cookie di preferenza relativo al banner informativo viene conservato per un massimo di 12 mesi, salvo diversa scelta dell’utente."
+      },
+      {
+        "titolo": "4. Gestione del consenso",
+        "testo": "Al primo accesso viene mostrato un banner che permette di accettare o rifiutare i cookie non strettamente necessari (ove presenti). Puoi modificare la scelta in qualsiasi momento cancellando i cookie dal browser o cliccando su «Gestisci cookie» nel footer del sito."
+      },
+      {
+        "titolo": "5. Come disabilitare i cookie dal browser",
+        "testo": "Puoi configurare il browser per bloccare o cancellare i cookie. Di seguito i link alle guide dei browser più comuni:\n• Chrome: support.google.com/chrome\n• Firefox: support.mozilla.org\n• Safari: support.apple.com\n• Edge: support.microsoft.com\nLa disabilitazione dei cookie tecnici può compromettere alcune funzioni del sito."
+      },
+      {
+        "titolo": "6. Titolare e contatti",
+        "testo": "Titolare: Live Impianti S.r.l. – P.IVA 12024031002 – Piazza Attilio Omodei Zorini, 14, 00166 Roma (RM).\nPer informazioni: info@liveimpianti.it"
+      },
+      {
+        "titolo": "7. Collegamento alla Privacy Policy",
+        "testo": "Per il trattamento dei dati personali si rimanda alla Privacy Policy del sito."
+      }
+    ]
+  },
+  "linkPrivacy": "privacy-policy.html",
+  "linkCookie": "cookie-policy.html"
+}

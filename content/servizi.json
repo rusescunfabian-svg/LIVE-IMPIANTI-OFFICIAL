@@ -1,0 +1,45 @@
+{
+  "intestazione": {
+    "tag": "I nostri servizi",
+    "titolo": "Soluzioni complete per l'efficienza energetica",
+    "descrizione": "Dalla progettazione all'installazione, offriamo un servizio chiavi in mano per ogni tipo di impianto."
+  },
+  "voci": [
+    {
+      "icona": "elettrico",
+      "titolo": "Full Electric & Pompe di calore",
+      "descrizione": "Abitazioni indipendenti dal gas con pompe di calore aria-acqua ad alta efficienza energetica.",
+      "ordine": 1
+    },
+    {
+      "icona": "fotovoltaico",
+      "titolo": "Fotovoltaico residenziale e industriale",
+      "descrizione": "Impianti fotovoltaici per privati, aziende e strutture pubbliche.",
+      "ordine": 2
+    },
+    {
+      "icona": "radiante",
+      "titolo": "Sistemi radianti invisibili",
+      "descrizione": "Riscaldamento e raffrescamento a pavimento, soffitto e parete per comfort assoluto e design pulito.",
+      "ordine": 3
+    },
+    {
+      "icona": "domotica",
+      "titolo": "Smart Home & Domotica",
+      "descrizione": "Termostati intelligenti, controllo remoto e gestione smart degli impianti per il massimo comfort.",
+      "ordine": 4
+    },
+    {
+      "icona": "vmc",
+      "titolo": "VMC e Deumidificazione",
+      "descrizione": "Ventilazione meccanica controllata e deumidificazione canalizzata per aria sana e qualità dell'ambiente.",
+      "ordine": 5
+    },
+    {
+      "icona": "centrali",
+      "titolo": "Centrali termiche & Grandi impianti",
+      "descrizione": "Progettazione e realizzazione di centrali termiche ad alta potenza per condomini, alberghi e strutture commerciali.",
+      "ordine": 6
+    }
+  ]
+}

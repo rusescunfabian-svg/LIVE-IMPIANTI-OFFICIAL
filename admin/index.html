@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Area riservata · Live Impianti | RF Digital</title>
+  <meta name="description" content="Pannello di gestione contenuti — Live Impianti S.r.l. · RF Digital" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="custom.css?v=2" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <div id="rf-splash" aria-live="polite" aria-busy="true">
+    <div class="rf-splash__card">
+      <p class="rf-splash__studio">RF <span>DIGITAL</span></p>
+      <p class="rf-splash__tagline">Gestione contenuti web</p>
+      <div class="rf-splash__divider" aria-hidden="true"></div>
+      <div class="rf-splash__client">
+        <img src="../images/liveimpianti_logo.png" alt="Live Impianti" class="rf-client-logo" onerror="this.style.display='none'" />
+        <p class="rf-splash__client-text">
+          <strong>Live Impianti S.r.l.</strong>
+          Pannello amministrazione sito
+        </p>
+      </div>
+      <div class="rf-splash__loader" aria-hidden="true"></div>
+      <p class="rf-splash__hint">Caricamento in corso…</p>
+    </div>
+  </div>
+
+  <header id="rf-topbar" aria-hidden="true">
+    <div class="rf-topbar__left">
+      <a href="https://www.rfdigital.it" class="rf-topbar__brand" target="_blank" rel="noopener noreferrer" title="RF Digital">
+        <img src="rf-logo.svg" alt="RF Digital" class="rf-topbar__logo" />
+      </a>
+      <span class="rf-topbar__sep" aria-hidden="true"></span>
+      <img src="../images/liveimpianti_logo.png" alt="" class="rf-topbar__client-logo" onerror="this.style.display='none'" />
+      <span class="rf-topbar__title">CMS</span>
+    </div>
+    <div class="rf-topbar__right">
+      <span class="rf-topbar__client-name">Live Impianti</span>
+      <a href="/" class="rf-topbar__btn" target="_blank" rel="noopener noreferrer">Vedi sito</a>
+      <a href="/" class="rf-topbar__btn rf-topbar__btn--ghost" target="_blank" rel="noopener noreferrer" title="Homepage">↗</a>
+    </div>
+  </header>
+
+  <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+  <script>
+    (function () {
+      const splash = document.getElementById('rf-splash');
+      const topbar = document.getElementById('rf-topbar');
+
+      function showTopbar() {
+        if (topbar) topbar.setAttribute('aria-hidden', 'false');
+      }
+
+      function hideSplash() {
+        if (splash) splash.classList.add('is-hidden');
+        showTopbar();
+      }
+
+      setTimeout(hideSplash, 1400);
+      window.addEventListener('load', function () {
+        setTimeout(hideSplash, 700);
+      });
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', hideSplash);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

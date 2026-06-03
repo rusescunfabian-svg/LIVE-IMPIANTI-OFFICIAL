@@ -1,0 +1,535 @@
+/* ═══════════════════════════════════════════════════════════
+   Live Impianti · Pannello Decap CMS
+   Sviluppo: RF Digital
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --live-dark: #0f1923;
+  --live-dark-2: #1c2a35;
+  --live-green: #00a79e;
+  --live-green-dark: #007a73;
+  --live-green-mid: #00c4b9;
+  --live-yellow: #cbd000;
+  --live-bg: #f0f4f7;
+  --live-card: #ffffff;
+  --live-text: #0f1923;
+  --live-muted: #4a5f6e;
+  --live-border: #dce4ea;
+  --rf-accent: #3b82f6;
+  --admin-topbar-h: 56px;
+  --admin-footer-h: 36px;
+  --admin-radius: 12px;
+  --admin-radius-sm: 8px;
+  --admin-shadow: 0 4px 24px rgba(15, 25, 35, 0.08);
+  --admin-shadow-lg: 0 12px 40px rgba(15, 25, 35, 0.12);
+}
+
+html,
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Splash caricamento ── */
+#rf-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 167, 158, 0.18) 0%, transparent 55%),
+    linear-gradient(165deg, var(--live-dark) 0%, var(--live-dark-2) 48%, #0a3d38 100%);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#rf-splash.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rf-splash__card {
+  width: 100%;
+  max-width: 400px;
+  padding: 36px 32px 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: var(--admin-shadow-lg);
+  backdrop-filter: blur(12px);
+}
+
+.rf-splash__studio {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f8fafc;
+}
+
+.rf-splash__studio span {
+  font-weight: 300;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+}
+
+.rf-splash__tagline {
+  margin: 0 0 28px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.rf-splash__divider {
+  height: 1px;
+  margin: 0 0 24px;
+  background: linear-gradient(90deg, transparent, rgba(0, 196, 185, 0.45), transparent);
+}
+
+.rf-splash__client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.rf-splash__client img,
+.rf-client-logo {
+  display: block;
+  max-height: 56px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.rf-splash__client-text {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+.rf-splash__client-text strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--live-green-mid);
+}
+
+.rf-splash__loader {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 3px solid rgba(0, 196, 185, 0.2);
+  border-top-color: var(--live-green);
+  border-radius: 50%;
+  animation: rfSpin 0.75s linear infinite;
+}
+
+.rf-splash__hint {
+  margin: 20px 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+@keyframes rfSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Barra superiore fissa ── */
+#rf-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: var(--admin-topbar-h);
+  padding: 0 20px;
+  background: var(--live-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#rf-topbar[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#rf-topbar[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rf-topbar__left,
+.rf-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.rf-topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.rf-topbar__brand:hover {
+  opacity: 0.9;
+}
+
+.rf-topbar__logo {
+  height: 26px;
+  width: auto;
+}
+
+.rf-topbar__sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.rf-topbar__client-logo {
+  height: 28px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.rf-topbar__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.rf-topbar__client-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--live-green-mid);
+  white-space: nowrap;
+}
+
+.rf-topbar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--live-dark);
+  text-decoration: none;
+  background: var(--live-yellow);
+  border-radius: 50px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.rf-topbar__btn:hover {
+  background: #e8ec5a;
+  transform: translateY(-1px);
+}
+
+.rf-topbar__btn--ghost {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.rf-topbar__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+/* ── Footer credit ── */
+body::after {
+  content: 'RF Digital · Gestione contenuti Live Impianti S.r.l.';
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 400;
+  height: var(--admin-footer-h);
+  padding: 0 20px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: var(--admin-footer-h);
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #64748b;
+  background: var(--live-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+/* ── Spazi per barre fisse ── */
+[class*="AppHeader"],
+header[class*="AppHeader"],
+[class*="css-"][class*="AppHeader"] {
+  margin-top: var(--admin-topbar-h) !important;
+  background: var(--live-card) !important;
+  border-bottom: 1px solid var(--live-border) !important;
+  box-shadow: 0 1px 0 rgba(15, 25, 35, 0.04) !important;
+}
+
+/* Sidebar */
+[class*="SidebarContainer"],
+aside[class*="Sidebar"] {
+  background: var(--live-dark) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding-top: 8px !important;
+}
+
+[class*="SidebarNavLink"],
+a[class*="SidebarNavLink"] {
+  margin: 3px 10px !important;
+  padding: 10px 14px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+  border-radius: var(--admin-radius-sm) !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+[class*="SidebarNavLink"]:hover,
+a[class*="SidebarNavLink"]:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #e2e8f0 !important;
+}
+
+[class*="SidebarNavLink"][class*="active"],
+a[class*="SidebarNavLink--active"],
+[class*="SidebarNavLink--active"] {
+  background: rgba(0, 167, 158, 0.22) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: inset 3px 0 0 var(--live-green) !important;
+}
+
+/* Logo area in sidebar */
+[class*="SidebarContainer"] img,
+aside[class*="Sidebar"] img {
+  max-height: 40px !important;
+  object-fit: contain !important;
+  margin: 12px 14px 16px !important;
+}
+
+/* Main content area */
+[class*="MainContainer"],
+main[class*="Main"] {
+  background: var(--live-bg) !important;
+  padding-bottom: calc(var(--admin-footer-h) + 24px) !important;
+}
+
+[class*="PaneHeader"],
+[class*="CollectionHeader"] {
+  background: transparent !important;
+  border-bottom: 1px solid var(--live-border) !important;
+  padding: 20px 24px !important;
+}
+
+[class*="PaneHeader"] h1,
+[class*="CollectionHeader"] h1,
+[class*="PaneHeader"] [class*="Title"],
+h1[class*="css-"] {
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  color: var(--live-text) !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Form panels / cards */
+[class*="ControlPane"],
+[class*="EditorContainer"],
+[class*="PaneBody"] {
+  background: var(--live-card) !important;
+  border-radius: var(--admin-radius) !important;
+  border: 1px solid var(--live-border) !important;
+  box-shadow: var(--admin-shadow) !important;
+  margin: 16px 20px 20px !important;
+  overflow: hidden !important;
+}
+
+[class*="WidgetPreview"],
+[class*="ControlPane"] > div {
+  padding: 4px 0 !important;
+}
+
+/* Labels & hints */
+label,
+[class*="Label"],
+legend {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--live-dark-2) !important;
+  letter-spacing: 0.01em !important;
+}
+
+[class*="Hint"],
+p[class*="Hint"] {
+  font-size: 0.75rem !important;
+  color: var(--live-muted) !important;
+  line-height: 1.45 !important;
+}
+
+/* Inputs */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  border-radius: var(--admin-radius-sm) !important;
+  border: 1px solid var(--live-border) !important;
+  font-size: 0.9rem !important;
+  padding: 10px 12px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--live-green) !important;
+  box-shadow: 0 0 0 3px rgba(0, 167, 158, 0.18) !important;
+  outline: none !important;
+}
+
+/* List widgets (progetti, sezioni) */
+[class*="ListItem"],
+li[class*="ListItem"] {
+  border: 1px solid var(--live-border) !important;
+  border-radius: var(--admin-radius-sm) !important;
+  margin-bottom: 10px !important;
+  background: #fafcfd !important;
+  overflow: hidden !important;
+}
+
+[class*="ListItemHeader"],
+[class*="ListItemSummary"] {
+  padding: 12px 16px !important;
+  font-weight: 600 !important;
+  color: var(--live-text) !important;
+  background: #fff !important;
+  border-bottom: 1px solid var(--live-border) !important;
+}
+
+[class*="ListItem"]:hover [class*="ListItemHeader"] {
+  background: var(--live-green-light, #e6f7f6) !important;
+}
+
+/* Buttons */
+button[class*="PrimaryButton"],
+[class*="Button"][class*="primary"],
+a[class*="Button"][class*="primary"] {
+  background: var(--live-green) !important;
+  border-color: var(--live-green) !important;
+  border-radius: var(--admin-radius-sm) !important;
+  font-weight: 600 !important;
+  padding: 10px 18px !important;
+}
+
+button[class*="PrimaryButton"]:hover,
+[class*="Button"][class*="primary"]:hover {
+  background: var(--live-green-dark) !important;
+  border-color: var(--live-green-dark) !important;
+}
+
+button[class*="SecondaryButton"],
+[class*="Button"][class*="default"] {
+  border-radius: var(--admin-radius-sm) !important;
+  border-color: var(--live-border) !important;
+}
+
+/* Top actions in editor */
+[class*="ToolbarButton"],
+[class*="EditorToolbar"] button {
+  border-radius: var(--admin-radius-sm) !important;
+}
+
+/* Object / collapsed sections */
+details,
+[class*="ObjectControl"] {
+  border-radius: var(--admin-radius-sm) !important;
+}
+
+summary,
+[class*="ObjectSummary"] {
+  font-weight: 600 !important;
+  padding: 12px 14px !important;
+  background: #f8fafb !important;
+  border-radius: var(--admin-radius-sm) !important;
+}
+
+/* Media / image picker */
+[class*="ImageWrapper"],
+[class*="CardImage"] {
+  border-radius: var(--admin-radius-sm) !important;
+  border: 1px solid var(--live-border) !important;
+}
+
+/* Preview pane */
+[class*="PreviewPane"],
+[class*="Preview"] {
+  border-left: 1px solid var(--live-border) !important;
+}
+
+/* Login Netlify Identity */
+#netlify-identity-widget,
+.netlify-identity-menu {
+  font-family: Inter, system-ui, sans-serif !important;
+}
+
+.netlify-identity-widget {
+  border-radius: var(--admin-radius) !important;
+  box-shadow: var(--admin-shadow-lg) !important;
+}
+
+/* Scrollbar sidebar */
+[class*="SidebarContainer"]::-webkit-scrollbar {
+  width: 6px;
+}
+[class*="SidebarContainer"]::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #rf-topbar {
+    padding: 0 12px;
+    height: 52px;
+  }
+  .rf-topbar__title {
+    display: none;
+  }
+  .rf-topbar__client-name {
+    font-size: 0.75rem;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rf-topbar__btn {
+    padding: 7px 12px;
+    font-size: 0.72rem;
+  }
+  [class*="ControlPane"],
+  [class*="EditorContainer"] {
+    margin: 12px !important;
+  }
+}

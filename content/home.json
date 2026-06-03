@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "badge": "Indipendenza e sostenibilità energetica",
+    "titoloRiga1": "Impianti",
+    "titoloAccent": "intelligenti",
+    "titoloRiga2": "per il tuo futuro energetico",
+    "sottotitolo": "Progettiamo e installiamo impianti: fotovoltaici, climatizzazione, sistemi radianti, pompe di calore e centrali termiche realizzati chiavi in mano a Roma e nel Centro Italia.",
+    "pulsantePrimario": "Scopri i nostri progetti",
+    "pulsantePrimarioLink": "progetti.html",
+    "pulsanteSecondario": "Contattaci",
+    "pulsanteSecondarioLink": "#contatti",
+    "statistiche": [
+      { "numero": 1200, "suffisso": "+", "etichetta": "Impianti realizzati" },
+      { "numero": 20, "suffisso": "+", "etichetta": "Anni di esperienza" },
+      { "numero": 100, "suffisso": "%", "etichetta": "Soddisfazione cliente" }
+    ]
+  },
+  "sezioneProgetti": {
+    "tag": "Portfolio",
+    "titolo": "I nostri progetti",
+    "descrizione": "Ogni progetto è una soluzione su misura. Esplora le nostre realizzazioni."
+  },
+  "cta": {
+    "titolo": "Pronto a rendere la tua casa o azienda più efficiente?",
+    "descrizione": "Contattaci per un sopralluogo gratuito e un preventivo senza impegno.",
+    "pulsante": "Richiedi un preventivo gratuito",
+    "pulsanteLink": "#contatti"
+  }
+}
