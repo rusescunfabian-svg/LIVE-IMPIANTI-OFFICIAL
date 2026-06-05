@@ -1093,9 +1093,10 @@ body.nav-open {
   border: none;
   cursor: pointer;
   text-align: left;
-  touch-action: manipulation;
+  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
   transition: background var(--transition);
+  user-select: none;
 }
 .acc-header:hover { background: var(--gray-6); }
 .acc-item.active .acc-header { background: var(--green-light); }

@@ -26,6 +26,15 @@ const SitoLoader = (() => {
       .replace(/"/g, '&quot;');
   }
 
+  function normalizeMapsEmbed(url) {
+    if (!url) return url;
+    let out = url.replace(/!([35])m2!1sro!2sit/gi, '!$1m2!1sit!2sit');
+    if (!/[?&]hl=it/i.test(out)) {
+      out += out.includes('?') ? '&hl=it' : '?hl=it';
+    }
+    return out;
+  }
+
   function get(obj, path) {
     return path.split('.').reduce((o, k) => (o != null ? o[k] : undefined), obj);
   }
@@ -219,7 +228,7 @@ const SitoLoader = (() => {
     });
 
     const iframe = document.getElementById('sitoMappa');
-    if (iframe && a.mappaEmbed) iframe.src = a.mappaEmbed;
+    if (iframe && a.mappaEmbed) iframe.src = normalizeMapsEmbed(a.mappaEmbed);
 
     const mapLink = document.getElementById('sitoMapsLink');
     if (mapLink && a.linkGoogleMaps) mapLink.href = a.linkGoogleMaps;

@@ -116,79 +116,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Accordion / Projects ───
-  const accItems = document.querySelectorAll('.acc-item');
-  let accordionFrozenY = null;
+  // ─── Accordion / Projects (mobile: tap apre, swipe scorre pagina) ───
+  function setupAccordion() {
+    const accItems = document.querySelectorAll('.acc-item');
 
-  function freezePageScroll() {
-    const y = window.scrollY;
-    if (accordionFrozenY !== null) return accordionFrozenY;
-    accordionFrozenY = y;
-    document.documentElement.style.scrollBehavior = 'auto';
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${y}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
-    return y;
-  }
+    accItems.forEach((item) => {
+      const header = item.querySelector('.acc-header');
+      if (!header || header.dataset.accReady) return;
+      header.dataset.accReady = '1';
 
-  function unfreezePageScroll(y) {
-    const restoreY = y ?? accordionFrozenY ?? 0;
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    accordionFrozenY = null;
-    window.scrollTo(0, restoreY);
-  }
+      let touchStartY = 0;
+      let touchMoved = false;
+      let lastTouchToggle = 0;
 
-  accItems.forEach(item => {
-    const header = item.querySelector('.acc-header');
-    const body = item.querySelector('.acc-body');
+      const toggle = () => {
+        const isActive = item.classList.contains('active');
 
-    const blockFocusScroll = (e) => e.preventDefault();
-
-    header.addEventListener('mousedown', blockFocusScroll);
-    header.addEventListener('touchstart', blockFocusScroll, { passive: false });
-
-    header.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      const scrollY = freezePageScroll();
-
-      if (isActive) {
-        item.classList.remove('active');
-        header.setAttribute('aria-expanded', 'false');
-      } else {
         accItems.forEach((i) => {
-          if (i === item) return;
           i.classList.remove('active');
-          i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+          i.querySelector('.acc-header')?.setAttribute('aria-expanded', 'false');
         });
-        item.classList.add('active');
-        header.setAttribute('aria-expanded', 'true');
-      }
 
-      if (document.activeElement === header) {
-        header.blur();
-      }
+        if (!isActive) {
+          item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      };
 
-      const release = () => unfreezePageScroll(scrollY);
-      [0, 16, 50, 100, 200, 350, 500, 650].forEach((ms) => setTimeout(release, ms));
+      header.addEventListener('mousedown', (e) => {
+        if (e.button === 0) e.preventDefault();
+      });
 
-      if (body) {
-        const onTransitionEnd = (ev) => {
-          if (ev.propertyName !== 'max-height') return;
-          body.removeEventListener('transitionend', onTransitionEnd);
-          release();
-        };
-        body.addEventListener('transitionend', onTransitionEnd);
-      }
+      header.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        touchMoved = false;
+      }, { passive: true });
+
+      header.addEventListener('touchmove', (e) => {
+        if (Math.abs(e.touches[0].clientY - touchStartY) > 10) {
+          touchMoved = true;
+        }
+      }, { passive: true });
+
+      header.addEventListener('touchend', () => {
+        if (!touchMoved) {
+          lastTouchToggle = Date.now();
+          toggle();
+        }
+      });
+
+      header.addEventListener('click', () => {
+        if (Date.now() - lastTouchToggle < 500) return;
+        toggle();
+      });
+
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
     });
-  });
+  }
+
+  setupAccordion();
+  document.addEventListener('progetti:home-rendered', setupAccordion);
 
   // ─── Contact form ───
   const form = document.getElementById('contactForm');

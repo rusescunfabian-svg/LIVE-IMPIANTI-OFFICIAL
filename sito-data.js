@@ -52,7 +52,7 @@ window.SITO_DATA = {
     "indirizzo": "Piazza Attilio Omodei Zorini, 14",
     "capCitta": "00166 Roma (RM)",
     "orari": "Lun – Ven: 08:30 – 17:30",
-    "mappaEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5938.289840910266!2d12.382814376858331!3d41.91124325263407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325f5c1a5504a77%3A0x716755673350beff!2sLive%20Impianti%20Srl!5e0!3m2!1sro!2sit!4v1780507438718!5m2!1sro!2sit",
+    "mappaEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5938.289840910266!2d12.382814376858331!3d41.91124325263407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325f5c1a5504a77%3A0x716755673350beff!2sLive%20Impianti%20Srl!5e0!3m2!1sit!2sit!4v1780507438718!5m2!1sit!2sit&hl=it",
     "linkGoogleMaps": "https://www.google.com/maps/place/Live+Impianti+Srl/@41.9109247,12.3884606,17z/data=!4m6!3m5!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!16s%2Fg%2F11fx9k301q?entry=ttu",
     "linkRecensione": "https://www.google.com/maps/place/Live+Impianti+Srl/@41.9112433,12.3828144,16z/data=!4m17!1m8!3m7!1s0x132f5f0658f51307:0xe6a911555ec99b51!2sPiazza+Attilio+Omodei+Zorini,+14,+00166+Roma+RM!3b1!8m2!3d41.9110317!4d12.3882539!16s%2Fg%2F11rg66lx86!3m7!1s0x1325f5c1a5504a77:0x716755673350beff!8m2!3d41.9109247!4d12.3884606!9m1!1b1!16s%2Fg%2F11fx9k301q?entry=ttu",
     "sezioneContatti": {
