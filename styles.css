@@ -1097,6 +1097,14 @@ body.nav-open {
   -webkit-tap-highlight-color: transparent;
   transition: background var(--transition);
   user-select: none;
+  scroll-margin: 0;
+}
+.acc-header:focus {
+  outline: none;
+}
+.acc-header:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
 .acc-header:hover { background: var(--gray-6); }
 .acc-item.active .acc-header { background: var(--green-light); }

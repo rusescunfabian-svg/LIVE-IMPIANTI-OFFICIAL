@@ -116,35 +116,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Accordion / Projects (mobile: tap apre, swipe scorre pagina) ───
+  // ─── Accordion / Projects ───
+  function preserveScrollPosition(run) {
+    const x = window.scrollX;
+    const y = window.scrollY;
+    const html = document.documentElement;
+    const prevBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+
+    run();
+
+    const restore = () => window.scrollTo(x, y);
+    restore();
+    requestAnimationFrame(restore);
+    [0, 50, 150, 450].forEach((ms) => setTimeout(restore, ms));
+    setTimeout(() => {
+      restore();
+      html.style.scrollBehavior = prevBehavior;
+    }, 500);
+  }
+
   function setupAccordion() {
     const accItems = document.querySelectorAll('.acc-item');
 
     accItems.forEach((item) => {
       const header = item.querySelector('.acc-header');
+      const body = item.querySelector('.acc-body');
       if (!header || header.dataset.accReady) return;
       header.dataset.accReady = '1';
 
       let touchStartY = 0;
       let touchMoved = false;
       let lastTouchToggle = 0;
+      let lockScrollX = 0;
+      let lockScrollY = 0;
 
-      const toggle = () => {
-        const isActive = item.classList.contains('active');
-
-        accItems.forEach((i) => {
-          i.classList.remove('active');
-          i.querySelector('.acc-header')?.setAttribute('aria-expanded', 'false');
-        });
-
-        if (!isActive) {
-          item.classList.add('active');
-          header.setAttribute('aria-expanded', 'true');
-        }
+      const restoreLockedScroll = () => {
+        const html = document.documentElement;
+        const prevBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = 'auto';
+        window.scrollTo(lockScrollX, lockScrollY);
+        html.style.scrollBehavior = prevBehavior;
       };
 
-      header.addEventListener('mousedown', (e) => {
-        if (e.button === 0) e.preventDefault();
+      const toggle = () => {
+        lockScrollX = window.scrollX;
+        lockScrollY = window.scrollY;
+
+        preserveScrollPosition(() => {
+          const isActive = item.classList.contains('active');
+
+          accItems.forEach((i) => {
+            i.classList.remove('active');
+            i.querySelector('.acc-header')?.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        if (document.activeElement === header) header.blur();
+      };
+
+      header.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
+          e.preventDefault();
+        }
       });
 
       header.addEventListener('touchstart', (e) => {
@@ -165,8 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      header.addEventListener('click', () => {
+      header.addEventListener('click', (e) => {
         if (Date.now() - lastTouchToggle < 500) return;
+        e.preventDefault();
         toggle();
       });
 
@@ -176,6 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
           toggle();
         }
       });
+
+      if (body) {
+        body.addEventListener('transitionend', (ev) => {
+          if (ev.propertyName !== 'max-height') return;
+          restoreLockedScroll();
+        });
+      }
     });
   }
 
@@ -244,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Fade-in on scroll (Intersection Observer) ───
   const fadeSelector =
-    '.service-card, .acc-item, .contact-item, .why-us__content, .stat, .proj-card';
+    '.service-card, .contact-item, .why-us__content, .stat, .projects .proj-card';
   let fadeObserver;
 
   function setupFadeIn() {

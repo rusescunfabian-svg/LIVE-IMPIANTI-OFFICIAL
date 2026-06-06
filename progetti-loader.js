@@ -353,7 +353,7 @@ const ProgettiLoader = (() => {
 
       el.innerHTML = `
         <div class="acc-carousel" data-acc-carousel>
-          <div class="acc-carousel__track" tabindex="0">${slides || '<p class="acc-carousel__empty">Nessun progetto in questa categoria.</p>'}</div>
+          <div class="acc-carousel__track">${slides || '<p class="acc-carousel__empty">Nessun progetto in questa categoria.</p>'}</div>
         </div>
         <p class="acc-carousel__footer">
           <a href="progetti.html#${cat}" class="acc-carousel__link">Vedi tutti i progetti</a>
