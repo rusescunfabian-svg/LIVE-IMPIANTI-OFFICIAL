@@ -1171,14 +1171,20 @@ body.nav-open {
 .acc-item.active .acc-chevron { background: var(--green); color: var(--white); }
 .acc-item.active .acc-chevron svg { transform: rotate(180deg); }
 
-/* Accordion body */
+/* Accordion body – grid (evita salti scroll vs max-height) */
 .acc-body {
-  max-height: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow-anchor: none;
-  transition: max-height .45s cubic-bezier(.4,0,.2,1);
+  transition: grid-template-rows .45s cubic-bezier(.4, 0, .2, 1);
 }
-.acc-item.active .acc-body { max-height: 4200px; }
+.acc-body__inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.acc-item.active .acc-body {
+  grid-template-rows: 1fr;
+}
 
 .acc-projects {
   padding: 8px 0 28px;

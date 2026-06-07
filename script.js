@@ -117,23 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── Accordion / Projects ───
-  function preserveScrollPosition(run) {
-    const x = window.scrollX;
-    const y = window.scrollY;
+  function stabilizeAccordionScroll(header, durationMs = 520) {
     const html = document.documentElement;
-    const prevBehavior = html.style.scrollBehavior;
-    html.style.scrollBehavior = 'auto';
+    const targetTop = header.getBoundingClientRect().top;
+    const started = performance.now();
+    let frameId = 0;
 
-    run();
+    const fix = () => {
+      const delta = header.getBoundingClientRect().top - targetTop;
+      if (Math.abs(delta) > 0.5) {
+        html.style.scrollBehavior = 'auto';
+        window.scrollBy(0, delta);
+      }
+      if (performance.now() - started < durationMs) {
+        frameId = requestAnimationFrame(fix);
+      }
+    };
 
-    const restore = () => window.scrollTo(x, y);
-    restore();
-    requestAnimationFrame(restore);
-    [0, 50, 150, 450].forEach((ms) => setTimeout(restore, ms));
-    setTimeout(() => {
-      restore();
-      html.style.scrollBehavior = prevBehavior;
-    }, 500);
+    cancelAnimationFrame(header._accScrollFrame || 0);
+    frameId = requestAnimationFrame(fix);
+    header._accScrollFrame = frameId;
   }
 
   function setupAccordion() {
@@ -141,43 +144,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     accItems.forEach((item) => {
       const header = item.querySelector('.acc-header');
-      const body = item.querySelector('.acc-body');
       if (!header || header.dataset.accReady) return;
       header.dataset.accReady = '1';
 
       let touchStartY = 0;
       let touchMoved = false;
       let lastTouchToggle = 0;
-      let lockScrollX = 0;
-      let lockScrollY = 0;
-
-      const restoreLockedScroll = () => {
-        const html = document.documentElement;
-        const prevBehavior = html.style.scrollBehavior;
-        html.style.scrollBehavior = 'auto';
-        window.scrollTo(lockScrollX, lockScrollY);
-        html.style.scrollBehavior = prevBehavior;
-      };
 
       const toggle = () => {
-        lockScrollX = window.scrollX;
-        lockScrollY = window.scrollY;
+        const isActive = item.classList.contains('active');
 
-        preserveScrollPosition(() => {
-          const isActive = item.classList.contains('active');
-
-          accItems.forEach((i) => {
-            i.classList.remove('active');
-            i.querySelector('.acc-header')?.setAttribute('aria-expanded', 'false');
-          });
-
-          if (!isActive) {
-            item.classList.add('active');
-            header.setAttribute('aria-expanded', 'true');
-          }
+        accItems.forEach((i) => {
+          i.classList.remove('active');
+          i.querySelector('.acc-header')?.setAttribute('aria-expanded', 'false');
         });
 
+        if (!isActive) {
+          item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+        }
+
         if (document.activeElement === header) header.blur();
+        stabilizeAccordionScroll(header);
       };
 
       header.addEventListener('pointerdown', (e) => {
@@ -216,13 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
           toggle();
         }
       });
-
-      if (body) {
-        body.addEventListener('transitionend', (ev) => {
-          if (ev.propertyName !== 'max-height') return;
-          restoreLockedScroll();
-        });
-      }
     });
   }
 

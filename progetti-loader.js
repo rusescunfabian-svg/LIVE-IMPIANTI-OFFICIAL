@@ -288,7 +288,7 @@ const ProgettiLoader = (() => {
     const excerpt = escapeHtml(truncate(p.descrizione, 100));
 
     return `
-      <div class="proj-card proj-card--clickable${featured}" data-progetto-card data-progetto-id="${escapeHtml(p.id)}" role="button" tabindex="0" aria-label="Apri dettagli: ${alt}">
+      <div class="proj-card proj-card--clickable${featured}" data-progetto-card data-progetto-id="${escapeHtml(p.id)}" role="button" tabindex="-1" aria-label="Apri dettagli: ${alt}">
         ${badge}
         <div class="proj-card__img"><img src="${img}" alt="${alt}" loading="lazy" /></div>
         <div class="proj-card__body">

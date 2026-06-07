@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://www.liveimpianti.itimages/home-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="images/home-hero.webp" type="image/webp" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <style>
     /* Hero mobil – navbar întunecat, overlay, text lizibil */
     @media (max-width: 767px) {
@@ -279,7 +279,7 @@
 
         <!-- ── CATEGORIA 1: Ville e abitazioni full electric ── -->
         <div class="acc-item" data-category="0" data-cat-id="ville">
-          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+          <div class="acc-header" role="button" tabindex="-1" aria-expanded="false">
             <div class="acc-header__left">
               <div class="acc-icon acc-icon--1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -293,6 +293,7 @@
             </div>
           </div>
           <div class="acc-body">
+            <div class="acc-body__inner">
             <div class="acc-category-banner">
               <img src="images/cat-ville.jpg" alt="Ville e abitazioni full electric" class="acc-banner-img" style="object-position: center 42%;" onerror="this.parentElement.classList.add('no-img')" />
               <div class="acc-banner-overlay">
@@ -301,12 +302,13 @@
               </div>
             </div>
             <div class="acc-projects" data-progetti-cat="ville"></div>
+            </div>
           </div>
         </div>
 
         <!-- ── CATEGORIA 2: Sistemi radianti e climatizzazione invisibile ── -->
         <div class="acc-item" data-category="1" data-cat-id="radianti">
-          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+          <div class="acc-header" role="button" tabindex="-1" aria-expanded="false">
             <div class="acc-header__left">
               <div class="acc-icon acc-icon--2">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M6 20V8M18 20V8M2 8l10-6 10 6"/><path d="M10 20v-4h4v4"/></svg>
@@ -320,6 +322,7 @@
             </div>
           </div>
           <div class="acc-body">
+            <div class="acc-body__inner">
             <div class="acc-category-banner acc-category-banner--2">
               <img src="images/cat-radianti-final.jpg" alt="Sistemi radianti e climatizzazione invisibile" class="acc-banner-img" style="object-position: center 34%;" onerror="this.parentElement.classList.add('no-img')" />
               <div class="acc-banner-overlay">
@@ -328,12 +331,13 @@
               </div>
             </div>
             <div class="acc-projects" data-progetti-cat="radianti"></div>
+            </div>
           </div>
         </div>
 
         <!-- ── CATEGORIA 3: Impianti fotovoltaici industriali e pubblici ── -->
         <div class="acc-item" data-category="2" data-cat-id="fotovoltaico">
-          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+          <div class="acc-header" role="button" tabindex="-1" aria-expanded="false">
             <div class="acc-header__left">
               <div class="acc-icon acc-icon--3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -347,6 +351,7 @@
             </div>
           </div>
           <div class="acc-body">
+            <div class="acc-body__inner">
             <div class="acc-category-banner acc-category-banner--3">
               <img src="images/cat-fotovoltaico.jpg" alt="Impianti fotovoltaici industriali e pubblici" class="acc-banner-img" onerror="this.parentElement.classList.add('no-img')" />
               <div class="acc-banner-overlay">
@@ -355,12 +360,13 @@
               </div>
             </div>
             <div class="acc-projects" data-progetti-cat="fotovoltaico"></div>
+            </div>
           </div>
         </div>
 
         <!-- ── CATEGORIA 4: Centrali termiche e grandi impianti ── -->
         <div class="acc-item" data-category="3" data-cat-id="centrali">
-          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+          <div class="acc-header" role="button" tabindex="-1" aria-expanded="false">
             <div class="acc-header__left">
               <div class="acc-icon acc-icon--4">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -374,6 +380,7 @@
             </div>
           </div>
           <div class="acc-body">
+            <div class="acc-body__inner">
             <div class="acc-category-banner acc-category-banner--4">
               <img src="images/cat-centrali-final.jpg" alt="Centrali termiche e grandi impianti" class="acc-banner-img" style="object-position: center 38%;" onerror="this.parentElement.classList.add('no-img')" />
               <div class="acc-banner-overlay">
@@ -382,6 +389,7 @@
               </div>
             </div>
             <div class="acc-projects" data-progetti-cat="centrali"></div>
+            </div>
           </div>
         </div>
 
@@ -697,7 +705,7 @@
       }
     });
   </script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 
 <!-- ══════════════ FLOATING CONTACT BUTTONS ══════════════ -->
 <div class="floating-contacts" aria-label="Contatti rapidi">
