@@ -25,6 +25,19 @@ function normalizeList(arr) {
     .filter(Boolean);
 }
 
+function normalizeGallery(arr) {
+  if (!Array.isArray(arr)) arr = [];
+  const slots = arr.map((item) => {
+    if (typeof item === 'string') return { foto: item.trim() };
+    if (item && typeof item === 'object') {
+      return { foto: String(item.foto || '').trim() };
+    }
+    return { foto: '' };
+  });
+  while (slots.length < 4) slots.push({ foto: '' });
+  return slots.slice(0, 4);
+}
+
 function syncProgetti() {
   const jsonPath = path.join(root, 'progetti.json');
   const outPath = path.join(root, 'progetti-data.js');
@@ -34,6 +47,7 @@ function syncProgetti() {
     data.progetti.forEach((p) => {
       p.features = normalizeList(p.features);
       p.tags = normalizeList(p.tags);
+      p.galleria = normalizeGallery(p.galleria);
     });
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
   }

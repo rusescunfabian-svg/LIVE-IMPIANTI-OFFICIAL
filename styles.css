@@ -1034,6 +1034,7 @@ body.nav-open {
   flex-direction: column;
   gap: 16px;
   overflow-anchor: none;
+  touch-action: pan-y;
 }
 
 .projects__cta {
@@ -1075,6 +1076,7 @@ body.nav-open {
   border-radius: var(--radius);
   overflow: hidden;
   transition: border-color var(--transition), box-shadow var(--transition);
+  touch-action: pan-y;
 }
 .acc-item.active {
   border-color: var(--green);
@@ -1188,12 +1190,14 @@ body.nav-open {
 
 .acc-projects {
   padding: 8px 0 28px;
+  touch-action: pan-y;
 }
 
 /* Carousel progetti (Home) – solo scorrimento orizzontale */
 .acc-carousel {
   position: relative;
   padding: 0;
+  touch-action: pan-y;
 }
 .acc-carousel__fade,
 .acc-carousel__btn {
@@ -1204,7 +1208,8 @@ body.nav-open {
   gap: 22px;
   overflow-x: auto;
   overflow-y: hidden;
-  touch-action: pan-x;
+  touch-action: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -1223,6 +1228,7 @@ body.nav-open {
   flex: 0 0 min(320px, 78vw);
   scroll-snap-align: start;
   min-width: 0;
+  touch-action: pan-y;
 }
 .acc-carousel__slide .proj-card {
   height: 100%;
@@ -1272,6 +1278,20 @@ body.nav-open {
   font-size: 0.95rem;
 }
 
+.proj-lightbox__nav[hidden] {
+  display: none !important;
+}
+.proj-lightbox__counter[hidden] {
+  display: none !important;
+}
+@media (min-width: 721px) and (max-width: 1024px) {
+  .proj-lightbox__inner {
+    max-width: min(640px, 92vw);
+  }
+  .proj-lightbox__hero img {
+    height: min(36vh, 300px);
+  }
+}
 @media (max-width: 720px) {
   .acc-carousel__track {
     padding: 6px 16px 16px;
@@ -1398,11 +1418,21 @@ body.nav-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 45%;
+  object-position: var(--img-pos-mobile, var(--img-pos, 50% 45%));
   display: block;
   filter: contrast(1.04) saturate(1.03) brightness(1.02);
   image-rendering: -webkit-optimize-contrast;
   transition: transform .55s ease;
+}
+@media (max-width: 1024px) {
+  .proj-card__img img {
+    object-position: var(--img-pos-mobile, var(--img-pos, 50% 45%));
+  }
+}
+@media (min-width: 1025px) {
+  .proj-card__img img {
+    object-position: var(--img-pos, 50% 45%);
+  }
 }
 .proj-card:hover .proj-card__img img { transform: scale(1.06); }
 
@@ -1520,6 +1550,7 @@ body.nav-open {
 
 .proj-card--clickable {
   cursor: pointer;
+  touch-action: pan-y;
 }
 .proj-card--clickable .proj-card__cta {
   pointer-events: none;
@@ -2710,6 +2741,7 @@ a.contact-item__value:hover { color: var(--green); }
   border-radius: var(--radius);
   overflow: hidden;
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+  touch-action: pan-y;
 }
 
 /* Gradient fallbacks when no image provided */
@@ -2758,9 +2790,19 @@ a.contact-item__value:hover { color: var(--green); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: var(--banner-pos-mobile, var(--banner-pos, center));
   z-index: 0;
   transition: transform .6s ease;
+}
+@media (max-width: 1024px) {
+  .acc-banner-img {
+    object-position: var(--banner-pos-mobile, var(--banner-pos, center));
+  }
+}
+@media (min-width: 1025px) {
+  .acc-banner-img {
+    object-position: var(--banner-pos, center);
+  }
 }
 .acc-item.active .acc-banner-img { transform: scale(1.04); }
 

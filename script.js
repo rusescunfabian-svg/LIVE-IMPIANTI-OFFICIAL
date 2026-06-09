@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { passive: true });
 
       header.addEventListener('touchmove', (e) => {
-        if (Math.abs(e.touches[0].clientY - touchStartY) > 10) {
+        if (Math.abs(e.touches[0].clientY - touchStartY) > 14) {
           touchMoved = true;
         }
       }, { passive: true });
@@ -280,6 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach((el) => {
       if (el.dataset.fadeReady) return;
       el.dataset.fadeReady = '1';
+      if (el.closest('.acc-carousel') || el.closest('[data-acc-carousel]')) {
+        el.classList.add('visible');
+        return;
+      }
       el.classList.add('fade-in');
       const siblings = el.parentElement?.querySelectorAll('.proj-card') || [];
       const i = siblings.length ? Array.from(siblings).indexOf(el) : 0;

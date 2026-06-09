@@ -28,6 +28,25 @@ slug:
   sanitize_replacement: "-"
 
 collections:
+  - name: guida
+    label: "00 · Guida — come si usa il pannello"
+    editor:
+      preview: true
+    files:
+      - name: guida-operativa
+        label: Istruzioni passo passo (leggi qui per prima)
+        file: content/guida-admin.md
+        fields:
+          - label: Titolo documento
+            name: title
+            widget: string
+            default: "Guida operativa — pannello Live Impianti"
+            hint: "Solo per organizzazione interna, non compare sul sito pubblico."
+          - label: Testo della guida
+            name: body
+            widget: markdown
+            hint: "Puoi scorrere e leggere tutto qui. Per modifiche alla guida contattare RF Digital."
+
   - name: home
     label: "01 · Pagina Home (hero e statistiche)"
     files:
@@ -171,6 +190,7 @@ collections:
               - { label: Descrizione sotto il banner, name: descrizione, widget: text, hint: "Testo in italiano visibile nella sezione Progetti" }
               - { label: Foto banner categoria, name: banner, widget: image, required: false }
               - { label: Posizione foto (CSS), name: bannerPosition, widget: string, required: false, hint: "Es. center 42%" }
+              - { label: Posizione foto mobile (CSS), name: bannerPositionMobile, widget: string, required: false, hint: "Es. 72% 38% — ritaglio su smartphone" }
               - { label: Classe CSS banner, name: bannerClass, widget: string, required: false, hint: "Es. acc-category-banner--2" }
               - { label: Ordine, name: ordine, widget: number, default: 1 }
 
@@ -218,6 +238,33 @@ collections:
                 widget: image
                 media_folder: images
                 public_folder: images
+
+              - label: Posizione foto card (desktop)
+                name: imagePosition
+                widget: string
+                required: false
+                hint: "Es. 50% 45% — lascia vuoto per il default"
+
+              - label: Posizione foto card (mobile)
+                name: imagePositionMobile
+                widget: string
+                required: false
+                hint: "Es. 72% 38% — ritaglio su smartphone/tablet stretto"
+
+              - label: Galleria dettaglio (foto extra nel lightbox)
+                name: galleria
+                widget: list
+                min: 4
+                max: 4
+                required: false
+                summary: "{{foto}}"
+                hint: "Foto principale + fino a 4 extra qui sotto. Slot vuoti = nessuna foto extra. Le frecce compaiono solo quando ci sono 2+ foto caricate in totale."
+                field:
+                  label: Foto aggiuntiva
+                  name: foto
+                  widget: image
+                  media_folder: images
+                  public_folder: images
 
               - label: Titolo breve (lista progetti)
                 name: titolo

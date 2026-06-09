@@ -45,23 +45,54 @@
     .proj-card.hidden-card { opacity: 0; transform: scale(.96) translateY(8px); pointer-events: none; height: 0; overflow: hidden; margin: 0; padding: 0; }
 
     /* ── Filter button active state ── */
-    .filter-btn { transition: all .22s ease; }
-    .filter-btn.active {
-      background: #00a79e;
-      color: #fff;
-      border-color: #00a79e;
+    .filter-btn {
+      transition: all .22s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .filter-btn:focus { outline: none; }
+    .filter-btn:focus-visible {
+      outline: 2px solid #00a79e;
+      outline-offset: 2px;
+    }
+    .filter-btn.active,
+    .filter-btn.active:focus,
+    .filter-btn.active:active {
+      background: #00a79e !important;
+      color: #fff !important;
+      border-color: #00a79e !important;
       box-shadow: 0 4px 16px rgba(0,167,158,.3);
     }
+    .filter-btn:not(.active):active {
+      background: #fff;
+      color: #00a79e;
+      border-color: #00a79e;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
 
     /* ── Image zoom on hover ── */
     .card-img-wrap { overflow: hidden; }
     .card-img-wrap img {
       transition: transform .5s cubic-bezier(.4,0,.2,1);
-      object-position: 50% 45%;
+      object-position: var(--img-pos-mobile, var(--img-pos, 50% 45%));
       filter: contrast(1.05) saturate(1.04) brightness(1.03);
       image-rendering: -webkit-optimize-contrast;
       backface-visibility: hidden;
       transform: translateZ(0);
+    }
+    @media (max-width: 1024px) {
+      .card-img-wrap img {
+        object-position: var(--img-pos-mobile, var(--img-pos, 50% 45%));
+      }
+    }
+    @media (min-width: 1025px) {
+      .card-img-wrap img {
+        object-position: var(--img-pos, 50% 45%);
+      }
     }
     .proj-card:hover .card-img-wrap img { transform: scale(1.06); }
 
@@ -311,6 +342,13 @@
     <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto" id="lightboxInner">
       <div class="relative">
         <img id="lbImg" src="" alt="" class="w-full h-64 md:h-80 object-cover" />
+        <button type="button" id="lbPrev" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-colors hidden" aria-label="Foto precedente">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" id="lbNext" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-colors hidden" aria-label="Foto successiva">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <span id="lbCounter" class="absolute top-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs font-600 px-3 py-1 rounded-full hidden"></span>
         <button id="lbClose" class="absolute top-4 right-4 bg-white/90 hover:bg-white w-9 h-9 rounded-full flex items-center justify-center shadow-md transition-colors" aria-label="Chiudi">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
@@ -365,9 +403,9 @@
   </footer>
 
   <!-- ══════════════ JAVASCRIPT ══════════════ -->
-  <script src="site-paths.js"></script>
+  <script src="site-paths.js?v=20260609"></script>
   <script src="progetti-data.js"></script>
-  <script src="progetti-loader.js"></script>
+  <script src="progetti-loader.js?v=20260610"></script>
   <script>
   (() => {
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -392,16 +430,36 @@
     };
 
     const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
+    const lbInner = document.getElementById('lightboxInner');
+    const lbHero = lbInner?.querySelector('.relative');
+    const lbImg = lbHero?.querySelector('#lbImg');
     const lbTitle = document.getElementById('lbTitle');
     const lbLocation = document.getElementById('lbLocation');
     const lbDesc = document.getElementById('lbDesc');
     const lbFeatures = document.getElementById('lbFeatures');
-    const lbTag = document.getElementById('lbTag');
-    const lbClose = document.getElementById('lbClose');
+    const lbTag = lbHero?.querySelector('#lbTag');
+    const lbClose = lbHero?.querySelector('#lbClose');
     const lbCloseBottom = document.getElementById('lbCloseBottom');
+    const lbPrev = lbHero?.querySelector('#lbPrev');
+    const lbNext = lbHero?.querySelector('#lbNext');
+    const lbCounter = lbHero?.querySelector('#lbCounter');
+
+    function resolveImage(path) {
+      if (typeof ProgettiLoader?.assetUrl === 'function') {
+        return ProgettiLoader.assetUrl(path);
+      }
+      if (typeof window.resolveAsset === 'function') {
+        return window.resolveAsset(path);
+      }
+      return path || '';
+    }
 
     let currentFilter = 'all';
+    let lightboxPhotos = [];
+    let lightboxPhotoIndex = 0;
+    let lightboxProjectData = null;
+    let gridTouchStartY = 0;
+    let gridTouchMoved = false;
 
     function getCards() {
       return grid.querySelectorAll('.proj-card');
@@ -435,6 +493,7 @@
       filterBtns.forEach(btn => {
         const isActive = btn.dataset.filter === cat;
         btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         if (isActive) {
           btn.classList.add('border-brand', 'bg-brand', 'text-white');
           btn.classList.remove('border-gray-200', 'text-gray-600', 'bg-white');
@@ -446,29 +505,93 @@
     }
 
     filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+      btn.addEventListener('click', () => {
+        applyFilter(btn.dataset.filter);
+        btn.blur();
+      });
     });
 
-    function openLightbox(card) {
+    function updateLightboxNav() {
+      if (!lbPrev || !lbNext || !lbCounter) return;
+      const show = lightboxPhotos.length > 1;
+      lbPrev.classList.toggle('hidden', !show);
+      lbNext.classList.toggle('hidden', !show);
+      lbCounter.classList.toggle('hidden', !show);
+      if (show) lbCounter.textContent = `${lightboxPhotoIndex + 1} / ${lightboxPhotos.length}`;
+    }
+
+    function setLightboxPhoto(index) {
+      if (!lbImg || !lightboxPhotos.length) {
+        if (lbImg && !lbImg.src) lbImg.removeAttribute('src');
+        return;
+      }
+      lightboxPhotoIndex = ((index % lightboxPhotos.length) + lightboxPhotos.length) % lightboxPhotos.length;
+      const nextSrc = lightboxPhotos[lightboxPhotoIndex];
       lbImg.onerror = () => {
         lbImg.onerror = null;
-        lbImg.src = (window.resolveAsset && window.resolveAsset('images/liveimpianti_logo.png')) || 'images/liveimpianti_logo.png';
+        lbImg.src = resolveImage('images/gallery-placeholder.svg');
       };
-      lbImg.src = card.dataset.img || '';
-      lbImg.alt = card.dataset.title || '';
-      lbTitle.textContent = card.dataset.title || '';
-      lbLocation.textContent = card.dataset.location || '';
-      lbDesc.textContent = card.dataset.desc || '';
-      lbTag.textContent = catLabels[card.dataset.cat] || '';
+      lbImg.src = nextSrc;
+      if (lightboxProjectData?.title) lbImg.alt = lightboxProjectData.title;
+      updateLightboxNav();
+    }
+
+    function navigateLightbox(delta) {
+      if (lightboxPhotos.length < 2) return;
+      setLightboxPhoto(lightboxPhotoIndex + delta);
+    }
+
+    function buildGalleryFromCard(card) {
+      const projectId = card.dataset.id;
+      let photos = [];
+
+      const project =
+        (typeof ProgettiLoader?.findProgettoById === 'function' && ProgettiLoader.findProgettoById(projectId)) ||
+        window.PROGETTI_DATA?.progetti?.find((p) => p.id === projectId);
+
+      if (project && typeof ProgettiLoader?.getProjectGallery === 'function') {
+        photos = ProgettiLoader.getProjectGallery(project);
+      }
+
+      if (!photos.length) {
+        const cardImg = card.querySelector('.card-img-wrap img, img');
+        const src = cardImg?.currentSrc || cardImg?.src || cardImg?.getAttribute('src') || '';
+        if (src && !src.endsWith('/') && !src.endsWith('#')) photos = [src];
+      }
+
+      if (!photos.length && card.dataset.img) {
+        const resolved = resolveImage(card.dataset.img);
+        if (resolved) photos = [resolved];
+      }
+
+      return photos.filter(Boolean);
+    }
+
+    function openLightbox(card) {
+      lightboxProjectData = {
+        title: card.dataset.title || '',
+        location: card.dataset.location || '',
+        desc: card.dataset.desc || '',
+        cat: card.dataset.cat || '',
+        features: (card.dataset.features || '').split('|').filter(Boolean),
+      };
+      lightboxPhotos = buildGalleryFromCard(card);
+      lightboxPhotoIndex = 0;
+
+      lbTitle.textContent = lightboxProjectData.title;
+      lbLocation.textContent = lightboxProjectData.location;
+      lbDesc.textContent = lightboxProjectData.desc;
+      lbTag.textContent = catLabels[lightboxProjectData.cat] || '';
 
       lbFeatures.innerHTML = '';
-      (card.dataset.features || '').split('|').filter(Boolean).forEach(f => {
+      lightboxProjectData.features.forEach(f => {
         const li = document.createElement('li');
         li.className = 'feat-item text-sm text-gray-600 flex items-start';
         li.textContent = f;
         lbFeatures.appendChild(li);
       });
 
+      setLightboxPhoto(0);
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -476,19 +599,76 @@
     function closeLightbox() {
       lb.classList.remove('open');
       document.body.style.overflow = '';
+      lightboxPhotos = [];
+      lightboxPhotoIndex = 0;
+      lightboxProjectData = null;
     }
+
+    function bindLightboxSwipe(heroEl) {
+      if (!heroEl || heroEl.dataset.swipeBound) return;
+      heroEl.dataset.swipeBound = '1';
+      let startX = 0;
+      let startY = 0;
+      let axis = '';
+
+      heroEl.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        axis = '';
+      }, { passive: true });
+
+      heroEl.addEventListener('touchmove', (e) => {
+        if (e.touches.length !== 1 || axis) return;
+        const dx = Math.abs(e.touches[0].clientX - startX);
+        const dy = Math.abs(e.touches[0].clientY - startY);
+        if (dx > 14 || dy > 14) axis = dx > dy ? 'x' : 'y';
+      }, { passive: true });
+
+      heroEl.addEventListener('touchend', (e) => {
+        if (axis !== 'x') return;
+        const delta = e.changedTouches[0].clientX - startX;
+        if (Math.abs(delta) < 48) return;
+        navigateLightbox(delta < 0 ? 1 : -1);
+      }, { passive: true });
+    }
+
+    bindLightboxSwipe(lbHero);
+
+    grid.addEventListener('touchstart', (e) => {
+      const card = e.target.closest('.proj-card');
+      if (!card) return;
+      gridTouchStartY = e.touches[0].clientY;
+      gridTouchMoved = false;
+    }, { passive: true });
+
+    grid.addEventListener('touchmove', (e) => {
+      const card = e.target.closest('.proj-card');
+      if (!card) return;
+      if (Math.abs(e.touches[0].clientY - gridTouchStartY) > 14) {
+        gridTouchMoved = true;
+      }
+    }, { passive: true });
 
     grid.addEventListener('click', (e) => {
       const card = e.target.closest('.proj-card');
       if (!card || card.classList.contains('hidden-card')) return;
       if (card.style.display === 'none') return;
+      if (gridTouchMoved) return;
       openLightbox(card);
     });
 
     lbClose.addEventListener('click', closeLightbox);
     lbCloseBottom.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
     lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
 
     function openProjectFromUrl() {
       const params = new URLSearchParams(location.search);

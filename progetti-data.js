@@ -62,7 +62,21 @@ window.PROGETTI_DATA = {
       "label": "Villa",
       "titoloHome": "Full electric con fotovoltaico – Acilia",
       "showOnHome": true,
-      "ordine": 1
+      "ordine": 1,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "casale-cellere",
@@ -86,11 +100,27 @@ window.PROGETTI_DATA = {
         "Smart"
       ],
       "immagine": "images/casale-cellere.jpg",
+      "imagePosition": "50% 45%",
+      "imagePositionMobile": "72% 38%",
       "featured": false,
       "label": "Casale",
       "titoloHome": "Impianto integrato per casale – Cellere",
       "showOnHome": true,
-      "ordine": 2
+      "ordine": 2,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "appartamento-boccea",
@@ -118,7 +148,21 @@ window.PROGETTI_DATA = {
       "label": "Appartamento",
       "titoloHome": "Impianto completo full electric – Boccea",
       "showOnHome": true,
-      "ordine": 3
+      "ordine": 3,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "villa-radiante-nuova",
@@ -143,7 +187,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Villa",
       "showOnHome": false,
-      "ordine": 4
+      "ordine": 4,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "appartamento-nuovo",
@@ -167,7 +225,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Appartamento",
       "showOnHome": false,
-      "ordine": 5
+      "ordine": 5,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "villa-nuova-3",
@@ -191,7 +263,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Villa",
       "showOnHome": false,
-      "ordine": 6
+      "ordine": 6,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "ville-new-4",
@@ -215,7 +301,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Villa",
       "showOnHome": false,
-      "ordine": 7
+      "ordine": 7,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "attico-radiante-new",
@@ -242,7 +342,21 @@ window.PROGETTI_DATA = {
       "label": "Attico",
       "titoloHome": "Impianto radiante a soffitto – Roma",
       "showOnHome": true,
-      "ordine": 1
+      "ordine": 1,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "struttura-ricettiva",
@@ -265,7 +379,21 @@ window.PROGETTI_DATA = {
       "label": "Struttura ricettiva",
       "titoloHome": "Riqualificazione impianto termico – Centro storico di Roma",
       "showOnHome": true,
-      "ordine": 2
+      "ordine": 2,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "villa-fiumicino-2",
@@ -293,7 +421,21 @@ window.PROGETTI_DATA = {
       "label": "Villa",
       "titoloHome": "Impianto radiante a soffitto – Fiumicino",
       "showOnHome": true,
-      "ordine": 3
+      "ordine": 3,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "loft-portuense",
@@ -318,7 +460,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Loft",
       "showOnHome": false,
-      "ordine": 4
+      "ordine": 4,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "radiante-controsoffitto",
@@ -342,7 +498,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Villa",
       "showOnHome": false,
-      "ordine": 5
+      "ordine": 5,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "radiante-pavimento-new",
@@ -366,7 +536,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Appartamento",
       "showOnHome": false,
-      "ordine": 6
+      "ordine": 6,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "radianti-new-4",
@@ -390,7 +574,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Villa",
       "showOnHome": false,
-      "ordine": 7
+      "ordine": 7,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-317kw",
@@ -417,7 +615,21 @@ window.PROGETTI_DATA = {
       "labelStile": "kw",
       "titoloHome": "Impianto fotovoltaico – Azienda agricola",
       "showOnHome": true,
-      "ordine": 1
+      "ordine": 1,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-500kw",
@@ -444,7 +656,21 @@ window.PROGETTI_DATA = {
       "labelStile": "kw",
       "titoloHome": "Impianto fotovoltaico – Pavona",
       "showOnHome": true,
-      "ordine": 2
+      "ordine": 2,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-40kw-scuola",
@@ -471,7 +697,21 @@ window.PROGETTI_DATA = {
       "labelStile": "pub",
       "titoloHome": "Impianto fotovoltaico 40 kW – Scuola, Siena",
       "showOnHome": true,
-      "ordine": 3
+      "ordine": 3,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-nuovo-1",
@@ -495,7 +735,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 4
+      "ordine": 4,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-nuovo-2",
@@ -519,7 +773,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 5
+      "ordine": 5,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-nuovo-3",
@@ -543,7 +811,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 6
+      "ordine": 6,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "foto-new-a",
@@ -567,7 +849,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Industriale",
       "showOnHome": false,
-      "ordine": 7
+      "ordine": 7,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "fotovoltaico-nuovo-5",
@@ -591,7 +887,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 8
+      "ordine": 8,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "foto-new-c",
@@ -615,7 +925,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 9
+      "ordine": 9,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "centrale-hotel",
@@ -638,7 +962,21 @@ window.PROGETTI_DATA = {
       "label": "Hotel",
       "titoloHome": "Centrale tecnologica e climatizzazione – Struttura alberghiera",
       "showOnHome": true,
-      "ordine": 1
+      "ordine": 1,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "centrale-new-a",
@@ -664,7 +1002,21 @@ window.PROGETTI_DATA = {
       "titoloHome": "Impianto termico industriale – Grande struttura",
       "showOnHome": true,
       "immagineHome": "images/centrale-nuova.jpg",
-      "ordine": 2
+      "ordine": 2,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "centrale-gregoriovii",
@@ -689,7 +1041,21 @@ window.PROGETTI_DATA = {
       "label": "Condominio",
       "titoloHome": "Centrale termica condominiale – Gregorio VII",
       "showOnHome": true,
-      "ordine": 3
+      "ordine": 3,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "centrale-new-b",
@@ -712,7 +1078,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Commerciale",
       "showOnHome": false,
-      "ordine": 4
+      "ordine": 4,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "centrale-new-c",
@@ -735,7 +1115,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Condominio",
       "showOnHome": false,
-      "ordine": 5
+      "ordine": 5,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     },
     {
       "id": "foto-new-b",
@@ -759,7 +1153,21 @@ window.PROGETTI_DATA = {
       "featured": false,
       "label": "Residenziale",
       "showOnHome": false,
-      "ordine": 6
+      "ordine": 6,
+      "galleria": [
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        },
+        {
+          "foto": ""
+        }
+      ]
     }
   ]
 };

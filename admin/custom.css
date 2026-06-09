@@ -187,6 +187,19 @@ html, body.rf-admin {
 }
 .rf-help__body li { margin-bottom: 6px; }
 .rf-help__body strong { color: var(--live-text); }
+.rf-help__lead {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+}
+.rf-help__highlight {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  background: rgba(0, 167, 158, 0.1);
+  border-left: 3px solid var(--live-green);
+  border-radius: 0 var(--admin-radius-sm) var(--admin-radius-sm) 0;
+  font-size: 0.85rem;
+  color: var(--live-text);
+}
 .rf-help__credit {
   margin: 12px 0 0;
   padding-top: 12px;
@@ -354,6 +367,47 @@ button[class*="PrimaryButton"],
   background: var(--live-green) !important;
   border-color: var(--live-green) !important;
   font-weight: 600 !important;
+}
+
+/* Guida markdown nel pannello — più leggibile */
+[class*="MarkdownControl"] [class*="MarkdownPreview"],
+[class*="markdown-preview"] {
+  font-size: 0.92rem !important;
+  line-height: 1.65 !important;
+  color: var(--live-text) !important;
+  padding: 8px 4px !important;
+}
+[class*="MarkdownControl"] h1 {
+  font-size: 1.35rem !important;
+  margin-top: 0 !important;
+  color: var(--live-dark) !important;
+}
+[class*="MarkdownControl"] h2 {
+  font-size: 1.05rem !important;
+  margin-top: 1.6em !important;
+  color: var(--live-green-dark) !important;
+  border-bottom: 1px solid var(--live-border);
+  padding-bottom: 6px;
+}
+[class*="MarkdownControl"] table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.85rem;
+}
+[class*="MarkdownControl"] th,
+[class*="MarkdownControl"] td {
+  border: 1px solid var(--live-border);
+  padding: 8px 10px;
+  text-align: left;
+}
+[class*="MarkdownControl"] th {
+  background: var(--live-bg);
+  font-weight: 600;
+}
+[class*="SidebarNavLink"]:first-of-type {
+  background: rgba(203, 208, 0, 0.12) !important;
+  border-left-color: var(--live-yellow) !important;
 }
 
 summary, [class*="ObjectSummary"] {
