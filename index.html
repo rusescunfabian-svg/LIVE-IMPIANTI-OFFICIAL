@@ -18,10 +18,11 @@
   <meta property="og:url" content="https://www.liveimpianti.it/" />
   <meta property="og:image" content="https://www.liveimpianti.it/images/home-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" as="image" href="images/home-hero.webp" type="image/webp" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="preload" as="image" href="images/home-hero-mobile.jpg" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="images/home-hero.webp" type="image/webp" media="(min-width: 768px)" />
+  <link rel="stylesheet" href="styles.css?v=12" />
   <style>
-    /* Hero mobil – navbar întunecat, overlay, text lizibil */
+    /* Hero mobil – doar navbar (restul în styles.css) */
     @media (max-width: 767px) {
       body.page-home .navbar:not(.scrolled) .navbar__glass,
       #navbar:not(.scrolled) .navbar__glass {
@@ -36,99 +37,6 @@
       }
       body.page-home .navbar:not(.scrolled) .navbar__logo-img {
         filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
-      }
-      #home.hero,
-      .page-home .hero {
-        display: grid !important;
-        grid-template-areas: "hero-stack" !important;
-        min-height: 100dvh !important;
-        min-height: 100svh !important;
-      }
-      #home .hero__bg,
-      .page-home .hero__bg {
-        grid-area: hero-stack !important;
-        position: absolute !important;
-        inset: 0 !important;
-        height: 100% !important;
-        min-height: 100% !important;
-      }
-      #home .hero__overlay,
-      .page-home .hero__overlay {
-        background:
-          linear-gradient(180deg, rgba(8, 18, 28, 0.82) 0%, rgba(8, 18, 28, 0.28) 60%, rgba(8, 18, 28, 0.2) 100%),
-          linear-gradient(to top, rgba(10, 15, 29, 0.32) 0%, transparent 14%) !important;
-      }
-      #home .hero__subtitle,
-      .page-home .hero__subtitle {
-        font-weight: 600 !important;
-        text-shadow: 0 0 2px #000, 0 2px 12px rgba(0, 0, 0, 0.9) !important;
-      }
-      #home .hero__btn--outline,
-      .page-home .hero__btn--outline {
-        background: rgba(15, 25, 35, 0.5) !important;
-        border-color: rgba(255, 255, 255, 0.92) !important;
-      }
-      #home .hero__bg-img,
-      .page-home .hero__bg-img {
-        object-position: center 58% !important;
-        transform: scale(1.18) !important;
-        transform-origin: center 58% !important;
-      }
-      #home .hero__wrap,
-      .page-home .hero__wrap {
-        grid-area: hero-stack !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
-        min-height: 100dvh !important;
-        min-height: 100svh !important;
-        padding: 0 !important;
-      }
-      #home .hero__center,
-      .page-home .hero__center {
-        flex: 1 1 auto !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: calc(56px + env(safe-area-inset-top, 0px) + 8px) 16px 8px !important;
-      }
-      #home .hero__content,
-      .page-home .hero__content {
-        margin: 0 auto !important;
-        text-align: center !important;
-        max-width: 22.5rem;
-      }
-      #home .hero__badge,
-      .page-home .hero__badge {
-        justify-content: center !important;
-        width: 100%;
-      }
-      #home .hero__badge::before,
-      .page-home .hero__badge::before {
-        display: none !important;
-      }
-      #home .hero__actions,
-      .page-home .hero__actions {
-        justify-content: center !important;
-      }
-      #home .hero__stats,
-      .page-home .hero__stats {
-        flex: 0 0 auto !important;
-        background: transparent !important;
-        margin-top: 0 !important;
-        border-top: none !important;
-      }
-      #home .hero__stat-num,
-      #home .hero__stat-label,
-      .page-home .hero__stat-num,
-      .page-home .hero__stat-label {
-        text-shadow: 0 0 3px #000, 0 2px 12px rgba(0, 0, 0, 0.95) !important;
-      }
-      #home .hero__stat-num,
-      #home .hero__stat-label,
-      .page-home .hero__stat-num,
-      .page-home .hero__stat-label {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 0, 0, 0.55) !important;
       }
     }
   </style>
@@ -199,6 +107,7 @@
   <section class="hero" id="home" aria-label="Home">
     <div class="hero__bg" aria-hidden="true">
       <picture>
+        <source media="(max-width: 767px)" srcset="images/home-hero-mobile.jpg" />
         <source srcset="images/home-hero.webp" type="image/webp" />
         <img
           src="images/home-hero.jpg"
@@ -705,7 +614,7 @@
       }
     });
   </script>
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 
 <!-- ══════════════ FLOATING CONTACT BUTTONS ══════════════ -->
 <div class="floating-contacts" aria-label="Contatti rapidi">

@@ -623,7 +623,7 @@ body.nav-open {
     --hero-stat-num-size: 1rem;
   }
   .page-home {
-    --hero-img-pos: center 58%;
+    --hero-img-pos: center 50%;
   }
   .page-home .hero {
     position: relative;
@@ -631,7 +631,7 @@ body.nav-open {
     grid-template-areas: "hero-stack";
     min-height: 100dvh;
     min-height: 100svh;
-    background: #0f1923;
+    background: #1a2e1a;
     overflow: hidden;
   }
   .page-home .hero__bg {
@@ -642,7 +642,7 @@ body.nav-open {
     width: 100%;
     height: 100%;
     min-height: 100%;
-    background: #0f1923;
+    background: #1a2e1a;
   }
   .page-home .hero__bg picture {
     position: absolute;
@@ -652,13 +652,12 @@ body.nav-open {
   }
   .page-home .hero__bg-img {
     object-fit: cover;
-    object-position: center 58%;
+    object-position: center center;
     width: 100%;
     height: 100%;
     min-width: 100%;
     min-height: 100%;
-    transform: scale(1.18);
-    transform-origin: center 58%;
+    transform: none;
   }
   .page-home .hero__overlay {
     display: block;
@@ -666,16 +665,11 @@ body.nav-open {
     background:
       linear-gradient(
         180deg,
-        rgba(8, 18, 28, 0.82) 0%,
-        rgba(8, 18, 28, 0.5) 22%,
-        rgba(8, 18, 28, 0.28) 55%,
-        rgba(8, 18, 28, 0.22) 100%
-      ),
-      linear-gradient(
-        to top,
-        rgba(10, 15, 29, 0.35) 0%,
-        rgba(10, 15, 29, 0.08) 8%,
-        transparent 14%
+        rgba(8, 18, 28, 0.72) 0%,
+        rgba(8, 18, 28, 0.35) 28%,
+        rgba(8, 18, 28, 0.12) 52%,
+        rgba(8, 18, 28, 0.45) 78%,
+        rgba(8, 18, 28, 0.72) 100%
       ) !important;
   }
   .page-home .navbar {
@@ -717,19 +711,20 @@ body.nav-open {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: calc(var(--navbar-height) + env(safe-area-inset-top, 0px) + 8px) 16px 8px;
+    justify-content: flex-end;
+    padding: calc(var(--navbar-height) + env(safe-area-inset-top, 0px) + 6px) 16px 4px;
     min-height: 0;
   }
   .page-home .hero__content {
     width: 100%;
-    max-width: 22.5rem;
+    max-width: 21rem;
     margin: 0 auto;
     text-align: center;
   }
   .page-home .hero__title {
-    margin-bottom: 12px;
-    line-height: 1.12;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-size: clamp(1.35rem, 5.8vw, 1.75rem);
   }
   .page-home .hero__badge {
     margin-bottom: 12px;
@@ -741,12 +736,13 @@ body.nav-open {
     display: none;
   }
   .page-home .hero__subtitle {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.55;
+    line-height: 1.5;
     max-width: 100%;
     font-weight: 600;
+    font-size: 0.78rem;
     color: #fff;
     text-shadow:
       0 0 2px rgba(0, 0, 0, 1),
@@ -785,19 +781,27 @@ body.nav-open {
     z-index: 3;
     flex: 0 0 auto;
     width: 100%;
-    gap: 10px;
+    gap: 8px;
     margin-top: 0;
-    padding: 12px 16px max(14px, env(safe-area-inset-bottom));
+    padding: 10px 12px max(12px, env(safe-area-inset-bottom));
     border-top: none;
-    background: transparent;
+    background: linear-gradient(
+      to top,
+      rgba(8, 18, 28, 0.82) 0%,
+      rgba(8, 18, 28, 0.55) 55%,
+      transparent 100%
+    );
   }
   .page-home .hero__stat-num {
+    font-size: clamp(1.05rem, 4.8vw, 1.2rem);
     text-shadow:
       0 0 3px rgba(0, 0, 0, 1),
       0 2px 12px rgba(0, 0, 0, 0.95),
       0 0 28px rgba(0, 0, 0, 0.6);
   }
   .page-home .hero__stat-label {
+    font-size: 0.58rem;
+    line-height: 1.2;
     text-shadow:
       0 0 2px rgba(0, 0, 0, 1),
       0 2px 8px rgba(0, 0, 0, 0.9);
@@ -1034,7 +1038,6 @@ body.nav-open {
   flex-direction: column;
   gap: 16px;
   overflow-anchor: none;
-  touch-action: pan-y;
 }
 
 .projects__cta {
@@ -1076,7 +1079,6 @@ body.nav-open {
   border-radius: var(--radius);
   overflow: hidden;
   transition: border-color var(--transition), box-shadow var(--transition);
-  touch-action: pan-y;
 }
 .acc-item.active {
   border-color: var(--green);
@@ -1095,7 +1097,6 @@ body.nav-open {
   border: none;
   cursor: pointer;
   text-align: left;
-  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
   transition: background var(--transition);
   user-select: none;
@@ -1190,14 +1191,12 @@ body.nav-open {
 
 .acc-projects {
   padding: 8px 0 28px;
-  touch-action: pan-y;
 }
 
-/* Carousel progetti (Home) – solo scorrimento orizzontale */
+/* Carousel progetti (Home) */
 .acc-carousel {
   position: relative;
   padding: 0;
-  touch-action: pan-y;
 }
 .acc-carousel__fade,
 .acc-carousel__btn {
@@ -1208,8 +1207,9 @@ body.nav-open {
   gap: 22px;
   overflow-x: auto;
   overflow-y: hidden;
-  touch-action: auto;
+  touch-action: pan-x pan-y;
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -1228,7 +1228,6 @@ body.nav-open {
   flex: 0 0 min(320px, 78vw);
   scroll-snap-align: start;
   min-width: 0;
-  touch-action: pan-y;
 }
 .acc-carousel__slide .proj-card {
   height: 100%;
@@ -1293,6 +1292,12 @@ body.nav-open {
   }
 }
 @media (max-width: 720px) {
+  .acc-body {
+    transition: grid-template-rows .32s cubic-bezier(.4, 0, .2, 1);
+  }
+  .acc-item.active .acc-body__inner {
+    overflow: visible;
+  }
   .acc-carousel__track {
     padding: 6px 16px 16px;
     scroll-padding-inline: 16px;
@@ -1550,7 +1555,7 @@ body.nav-open {
 
 .proj-card--clickable {
   cursor: pointer;
-  touch-action: pan-y;
+  touch-action: manipulation;
 }
 .proj-card--clickable .proj-card__cta {
   pointer-events: none;
@@ -2741,7 +2746,6 @@ a.contact-item__value:hover { color: var(--green); }
   border-radius: var(--radius);
   overflow: hidden;
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
-  touch-action: pan-y;
 }
 
 /* Gradient fallbacks when no image provided */

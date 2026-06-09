@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Accordion / Projects ───
   function stabilizeAccordionScroll(header, durationMs = 520) {
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+
     const html = document.documentElement;
     const targetTop = header.getBoundingClientRect().top;
     const started = performance.now();
